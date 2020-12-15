@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Headline1" parent="@style/Headline1">
+        <item name="android:textSize">93sp</item>
+    </style>
+
+    <style name="Headline2" parent="@style/Headline2">
+        <item name="android:textSize">58sp</item>
+    </style>
+
+    <style name="Headline3" parent="@style/Headline3">
+        <item name="android:textSize">46sp</item>
+    </style>
+
+    <style name="Headline4" parent="@style/Headline4">
+        <item name="android:textSize">33sp</item>
+    </style>
+
+    <style name="Headline5" parent="@style/Headline5">
+        <item name="android:textSize">23sp</item>
+    </style>
+
+    <style name="Headline6" parent="@style/Headline6">
+        <item name="android:textSize">19sp</item>
+    </style>
+
+    <style name="Subtitle1" parent="@style/Subtitle1">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="Subtitle2" parent="@style/Subtitle2">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="Body1" parent="@style/Body1">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="Body2" parent="@style/Body2">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="Button" parent="@style/Button">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="Caption" parent="@style/Caption">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Overline" parent="@style/Overline">
+        <item name="android:textSize">10sp</item>
+    </style>
+</resources>
