@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/secondaryLightColor"
+    android:orientation="vertical"
+    tools:context=".AuthActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/topPanel"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/anchorTop"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerInParent="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LOGIN"
+            android:textColor="@color/primaryColor"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:layout_above="@+id/anchorTop"
+            android:layout_alignLeft="@+id/appName"/>
+
+        <TextView
+            android:id="@+id/appName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="miniGH"
+            android:textColor="@color/primaryColor"
+            android:textSize="80sp"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/anchorTop" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:drawableLeft="@drawable/username"
+            android:paddingLeft="15dp"
+            android:drawablePadding="20dp"
+            android:background="@drawable/round_view"
+            android:hint="username"
+            android:textColorHint="@color/primaryTextColor"
+            android:textColor="@color/primaryTextColor" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/username"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:drawableLeft="@drawable/password"
+            android:paddingLeft="15dp"
+            android:drawablePadding="20dp"
+            android:background="@drawable/round_view"
+            android:hint="password"
+            android:textColorHint="@color/primaryTextColor"
+            android:inputType="textPassword"
+            android:textColor="@color/primaryTextColor" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don't have account? Sign Up"
+            android:textColor="@color/primaryColor"
+            android:layout_alignRight="@+id/password"
+            android:layout_below="@+id/password"
+            android:layout_alignEnd="@+id/password" />
+
+        <TextView
+            android:id="@+id/anchorBot"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerInParent="true"/>
+
+        <Button
+            android:id="@+id/button_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/anchorBot"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/round_view"
+            android:text="LOG IN"
+            android:textColor="#FFF" />
+    </RelativeLayout>
+</LinearLayout>
