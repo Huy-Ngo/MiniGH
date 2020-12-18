@@ -3,7 +3,6 @@ package vn.edu.usth.minigh;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 
 public class AuthActivity extends AppCompatActivity {
@@ -26,7 +25,7 @@ public class AuthActivity extends AppCompatActivity {
 
         if(userID != -1) {
             //user id logged in and so move to mainActivity
-            moveToMainActivity();
+            moveToProfileActivity();
         }
     }
 
@@ -40,11 +39,11 @@ public class AuthActivity extends AppCompatActivity {
         sessionManagement.saveSession(user);
 
         //2. step
-        moveToMainActivity();
+        moveToProfileActivity();
     }
 
-    private void moveToMainActivity() {
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+    private void moveToProfileActivity() {
+        Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
         startActivity(intent);
     }
 }

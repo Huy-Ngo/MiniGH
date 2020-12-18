@@ -3,6 +3,9 @@ package vn.edu.usth.minigh;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
@@ -30,14 +33,37 @@ public class RepoActivity extends AppCompatActivity {
     public void ClickMenu (View view){
         ProfileActivity.openDrawer(drawerLayout);
     }
+
     public void ClickLogo(View view){
         ProfileActivity.closeDrawer(drawerLayout);
     }
+
     public void ClickProfile(View view){
         ProfileActivity.redirectActivity(this, ProfileActivity.class);
     }
     public void ClickRepo(View view){
         recreate();
+    }
+
+    public void Logout(View view) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Log out");
+        builder.setMessage("Are you sure you want to log out?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
+                sessionManagement.removeSession();
+                ProfileActivity.redirectActivity(RepoActivity.this, AuthActivity.class);
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.show();
     }
 
     @Override

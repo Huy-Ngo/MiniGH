@@ -134,6 +134,7 @@
             style="@style/Headline6"
             android:layout_marginLeft="16dp"
             android:text="Log out"
+            android:onClick="Logout"
             android:textColor="@color/textColor"/>
     </LinearLayout>
 </LinearLayout>
