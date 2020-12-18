@@ -26,17 +26,17 @@
     </RelativeLayout>
 
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:orientation="vertical"
+        android:layout_weight="2">
 
         <EditText
             android:id="@+id/username"
             android:layout_width="320dp"
             android:layout_height="50dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             android:drawableLeft="@drawable/username"
             android:paddingLeft="15dp"
@@ -50,8 +50,7 @@
             android:id="@+id/password"
             android:layout_width="320dp"
             android:layout_height="50dp"
-            android:layout_below="@+id/username"
-            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             android:drawableLeft="@drawable/password"
             android:paddingLeft="15dp"
@@ -66,24 +65,22 @@
             android:id="@+id/signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="Don't have account? Sign Up"
-            android:textColor="@color/primaryColor"
-            android:layout_alignRight="@+id/password"
-            android:layout_below="@+id/password"
-            android:layout_alignEnd="@+id/password" />
+            android:textColor="@color/primaryColor" />
 
 
         <Button
             android:id="@+id/button_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="40dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
             android:layout_below="@+id/signup"
             android:layout_centerHorizontal="true"
             android:background="@drawable/round_view"
             android:text="LOG IN"
             android:onClick="login"
-            android:textColor="#FFF"
-            tools:ignore="OnClick" />
-    </RelativeLayout>
+            android:textColor="#FFF" />
+    </LinearLayout>
 </LinearLayout>
