@@ -11,7 +11,7 @@
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="120dp"-->
 <!--        android:layout_margin="16dp"-->
-<!--        android:onClick="ClickLogo"-->
+<!--        android:onClick="closeDrawer"-->
 <!--        android:src="@drawable/ic_launcher_background"-->
 <!--        android:layout_gravity="start"/>-->
     <com.google.android.material.imageview.ShapeableImageView
@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:onClick="ClickProfile">
+        android:onClick="clickProfile">
 
         <ImageView
             android:layout_width="25dp"
@@ -90,7 +90,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:onClick="ClickRepo">
+        android:onClick="clickRepo">
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
@@ -119,7 +119,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:onClick="Logout">
+        android:onClick="logout">
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
@@ -134,7 +134,7 @@
             style="@style/Headline6"
             android:layout_marginLeft="16dp"
             android:text="Log out"
-            android:onClick="Logout"
+            android:onClick="logout"
             android:textColor="@color/textColor"/>
     </LinearLayout>
 </LinearLayout>
