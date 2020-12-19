@@ -71,8 +71,8 @@
         android:onClick="clickProfile">
 
         <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_marginLeft="16dp"
             android:src="@drawable/ic_baseline_person_outline_24"/>
         <TextView
