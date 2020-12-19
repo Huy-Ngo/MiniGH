@@ -13,8 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import vn.edu.usth.minigh.ProfileActivity;
-import vn.edu.usth.minigh.RepoActivity;
 
 public class BaseActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
@@ -58,11 +56,15 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     public void clickProfile(View view) {
-        redirectActivity(ProfileActivity.class);
+        if (this.getClass() != ProfileActivity.class) {
+            redirectActivity(ProfileActivity.class);
+        }
     }
 
     public void clickRepo(View view) {
-        redirectActivity(RepoActivity.class);
+        if (this.getClass() != RepoActivity.class) {
+            redirectActivity(RepoActivity.class);
+        }
     }
 
     public void logout(View view) {

@@ -63,6 +63,7 @@
         android:background="@color/secondaryDarkColor"/>
 
     <LinearLayout
+        android:id="@+id/profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -86,6 +87,7 @@
             android:textColor="@color/textColor"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/repo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
