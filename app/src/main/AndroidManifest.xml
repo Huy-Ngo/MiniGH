@@ -12,7 +12,8 @@
 
         <activity android:name=".ProfileActivity"/>
         <activity android:name=".RepoActivity"/>
-        <activity android:name=".AuthActivity"/>
+        <activity android:name=".AuthActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity android:name=".SplashActivity"
                   android:noHistory="true">
             <intent-filter>
