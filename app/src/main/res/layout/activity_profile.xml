@@ -72,7 +72,7 @@ android:id="@+id/drawer_layout">
             android:layout_marginLeft="16dp"
             android:orientation="horizontal">
             <info.androidhive.fontawesome.FontTextView
-                android:layout_width="wrap_content"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:text="@string/fa_star"
                 android:textColor="@color/secondaryDarkColor"
@@ -93,7 +93,7 @@ android:id="@+id/drawer_layout">
             android:layout_marginLeft="16dp"
             android:orientation="horizontal">
             <info.androidhive.fontawesome.FontTextView
-                android:layout_width="wrap_content"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:text="@string/fa_question_circle"
                 android:textColor="@color/secondaryDarkColor"
@@ -114,7 +114,7 @@ android:id="@+id/drawer_layout">
             android:layout_marginLeft="16dp"
             android:orientation="horizontal">
             <info.androidhive.fontawesome.FontTextView
-                android:layout_width="wrap_content"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/small_margin"
                 android:text="@string/fa_envelope"
@@ -135,7 +135,7 @@ android:id="@+id/drawer_layout">
             android:layout_marginLeft="16dp"
             android:orientation="horizontal">
             <info.androidhive.fontawesome.FontTextView
-                android:layout_width="wrap_content"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/small_margin"
                 android:text="@string/fa_users_solid"

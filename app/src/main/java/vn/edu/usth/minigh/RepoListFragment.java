@@ -18,6 +18,9 @@
 
 package vn.edu.usth.minigh;
 
+// TODO: Empty this after the demo
+import java.util.Random;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,22 +33,46 @@ import androidx.annotation.Nullable;
 
 public class RepoListFragment extends Fragment {
     private int nRepos;
+    private Random r;
 
     public RepoListFragment(int nRepos) {
         // TODO: Empty this after the demo
         this.nRepos = nRepos;
+        this.r = new Random(42069);
     }
 
     private RepoPreviewFragment generateRepos() {
+        // TODO: Empty this after the demo
         RepoPreviewFragment fragment = new RepoPreviewFragment();
         Bundle args = new Bundle();
+        String[] languages = {"Java", "JavaScript", "C", "C#", "C++",
+            "Vim script", "Shell"};
+        String[] licenses = {"MIT", "GPL-3.0", "AGPL-3.0", "LGPL-3.0"};
         args.putString("owner", "Huy-Ngo");
         args.putString("name", "MiniGH");
         args.putString("description", "A GitHub client");
-        args.putInt("stars", 5);
-        args.putInt("forks", 1);
-        args.putString("mainLanguage", "java");
-        args.putString("license", "AGPL-3.0");
+        if (r.nextFloat() > 0.5) {
+            args.putInt("stars", r.nextInt(20));
+        } else {
+            args.putInt("stars", 0);
+        }
+        if (r.nextFloat() > 0.5) {
+            args.putInt("forks", r.nextInt(20));
+        } else {
+            args.putInt("forks", 0);
+        }
+        if (r.nextFloat() > 0.3) {
+            int l = languages.length;
+            args.putString("mainLanguage", languages[r.nextInt(l)]);
+        } else {
+            args.putString("mainLanguage", "");
+        }
+        if (r.nextFloat() > 0.5) {
+            int l2 = licenses.length;
+            args.putString("license", licenses[r.nextInt(l2)]);
+        } else {
+            args.putString("license", "");
+        }
         fragment.setArguments(args);
         return fragment;
     }
