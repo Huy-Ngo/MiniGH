@@ -17,6 +17,7 @@
 **/
 package vn.edu.usth.minigh;
 
+import android.content.Intent;
 import android.graphics.fonts.Font;
 import android.os.Bundle;
 import android.view.View;
@@ -55,5 +56,11 @@ public class ProfileActivity extends BaseActivity {
 
         TabLayout tabLayout = findViewById(R.id.profile_tab_layout);
         tabLayout.setupWithViewPager(pager);
+    }
+
+    public void goToRepo(View view) {
+        Intent intent = new Intent(this, RepoActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 }

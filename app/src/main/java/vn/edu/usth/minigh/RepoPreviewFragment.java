@@ -113,7 +113,6 @@ public class RepoPreviewFragment extends Fragment {
         TextView description = view.findViewById(R.id.description_text);
         description.setText(mDescription);
 
-        // TODO: For following fields, if any is unavailable, hide the whole LinearLayout
         if (mMainLanguage == "") {
             View language = view.findViewById(R.id.language);
             language.setVisibility(View.GONE);
