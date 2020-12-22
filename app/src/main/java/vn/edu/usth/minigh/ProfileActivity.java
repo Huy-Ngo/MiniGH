@@ -17,6 +17,7 @@
 **/
 package vn.edu.usth.minigh;
 
+import android.graphics.fonts.Font;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -26,6 +27,8 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
+
+import info.androidhive.fontawesome.FontTextView;
 
 public class ProfileActivity extends BaseActivity {
     public ProfileActivity() {

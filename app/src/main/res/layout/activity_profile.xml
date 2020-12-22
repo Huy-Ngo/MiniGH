@@ -82,7 +82,7 @@ android:id="@+id/drawer_layout">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/med_text_size"
+                android:textSize="@dimen/small_text_size"
                 android:textColor="@color/textColor"
                 android:layout_margin="@dimen/small_margin"
                 android:text="@string/status" />
@@ -103,7 +103,7 @@ android:id="@+id/drawer_layout">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/med_text_size"
+                android:textSize="@dimen/small_text_size"
                 android:textColor="@color/textColor"
                 android:layout_margin="@dimen/small_margin"
                 android:text="@string/description" />
@@ -125,7 +125,7 @@ android:id="@+id/drawer_layout">
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/small_margin"
-                android:textSize="@dimen/med_text_size"
+                android:textSize="@dimen/small_text_size"
                 android:textColor="@color/textColor"
                 android:text="@string/email" />
         </LinearLayout>
@@ -146,14 +146,14 @@ android:id="@+id/drawer_layout">
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/small_margin"
-                android:textSize="@dimen/med_text_size"
+                android:textSize="@dimen/small_text_size"
                 android:textColor="@color/textColor"
                 android:text="5 followers" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/small_margin"
-                android:textSize="@dimen/med_text_size"
+                android:textSize="@dimen/small_text_size"
                 android:textColor="@color/textColor"
                 android:text="5 following" />
         </LinearLayout>

@@ -18,10 +18,12 @@
 
 package vn.edu.usth.minigh;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -104,6 +106,8 @@ public class RepoPreviewFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_repo_preview, container, false);
         TextView repoName = view.findViewById(R.id.repo_name_text);
+        repoName.setTypeface(null, Typeface.BOLD);
+        repoName.setTextSize(18);
         repoName.setText(String.format("%s/%s", mOwner, mName));
         TextView description = view.findViewById(R.id.description_text);
         description.setText(mDescription);

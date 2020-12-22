@@ -63,11 +63,20 @@
         android:gravity="center_vertical"
         android:onClick="clickProfile">
 
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+<!--        <ImageView-->
+<!--            android:layout_width="20dp"-->
+<!--            android:layout_height="20dp"-->
+<!--            android:layout_marginLeft="16dp"-->
+<!--            android:src="@drawable/ic_baseline_person_outline_24"/>-->
+        <info.androidhive.fontawesome.FontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fa_user"
+            android:textSize="@dimen/icon_size"
             android:layout_marginLeft="16dp"
-            android:src="@drawable/ic_baseline_person_outline_24"/>
+            app:solid_icon="true"
+            android:id="@+id/profile_icon"
+            android:textColor="@color/primaryColor"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -86,12 +95,20 @@
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:onClick="clickRepo">
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+<!--        <ImageView-->
+<!--            android:layout_width="20dp"-->
+<!--            android:layout_height="20dp"-->
+<!--            android:layout_marginLeft="16dp"-->
+<!--            android:src="@drawable/repos"-->
+<!--            app:tint="@color/primaryColor" />-->
+        <info.androidhive.fontawesome.FontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fa_folder"
+            android:textSize="@dimen/icon_size"
             android:layout_marginLeft="16dp"
-            android:src="@drawable/repos"
-            app:tint="@color/secondaryDarkColor" />
+            android:textColor="@color/primaryColor"
+            app:solid_icon="true"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -115,12 +132,20 @@
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:onClick="logout">
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+<!--        <ImageView-->
+<!--            android:layout_width="20dp"-->
+<!--            android:layout_height="20dp"-->
+<!--            android:layout_marginLeft="16dp"-->
+<!--            android:src="@drawable/exit"-->
+<!--            app:tint="@color/secondaryDarkColor" />-->
+        <info.androidhive.fontawesome.FontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fa_sign_out_alt_solid"
+            android:textSize="@dimen/icon_size"
             android:layout_marginLeft="16dp"
-            android:src="@drawable/exit"
-            app:tint="@color/secondaryDarkColor" />
+            android:textColor="@color/primaryColor"
+            app:solid_icon="true"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
