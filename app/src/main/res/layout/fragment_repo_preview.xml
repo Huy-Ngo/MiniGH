@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2020  Ngô Ngọc Đức Huy
+  ~ This file is part of MiniGH.
+  ~
+  ~ MiniGH is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ MiniGH is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with MiniGH.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="128dp"
+    android:orientation="vertical"
+    android:layout_margin="5dp"
+    android:padding="5dp"
+    android:background="@drawable/border"
+    tools:context=".RepoPreviewFragment">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:orientation="horizontal"
+        android:id="@+id/repo_name"
+        android:layout_alignParentStart="true">
+        <info.androidhive.fontawesome.FontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_margin"
+            android:text="@string/fa_book_solid"
+            android:textSize="@dimen/icon_size"
+            app:solid_icon="true"/>
+        <TextView
+            android:id="@+id/repo_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@color/textColor"
+            android:text="repo name"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:id="@+id/description_text"
+        android:layout_alignLeft="@id/repo_name"
+        android:layout_below="@id/repo_name"
+        android:layout_above="@id/other_info"
+        android:text="Description"
+        android:textSize="@dimen/small_text_size"
+        android:layout_alignStart="@id/repo_name" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:id="@+id/other_info"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:id="@+id/language"
+            android:orientation="horizontal">
+            <info.androidhive.fontawesome.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/language_icon"
+                android:text="@string/fa_java"
+                android:textSize="@dimen/icon_size"
+                app:brand_icon="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="3dp"
+                android:id="@+id/language_text"
+                android:textSize="@dimen/small_text_size"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:id="@+id/forks"
+            android:orientation="horizontal">
+            <info.androidhive.fontawesome.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fa_code_branch_solid"
+                android:textSize="@dimen/icon_size"
+                app:solid_icon="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="3dp"
+                android:id="@+id/forks_text"
+                android:text="13"
+                android:textSize="@dimen/small_text_size"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:id="@+id/stars"
+            android:orientation="horizontal">
+            <info.androidhive.fontawesome.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fa_star"
+                android:textSize="@dimen/icon_size"
+                app:solid_icon="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="3dp"
+                android:id="@+id/stars_text"
+                android:text="4"
+                android:textSize="@dimen/small_text_size"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:id="@+id/license"
+            android:orientation="horizontal">
+            <info.androidhive.fontawesome.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fa_balance_scale_solid"
+                android:textSize="@dimen/icon_size"
+                app:solid_icon="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="3dp"
+                android:id="@+id/license_text"
+                android:text="AGPL-3.0"
+                android:textSize="@dimen/small_text_size"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

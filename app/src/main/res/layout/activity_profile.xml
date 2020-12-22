@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- User profile layout
+    Copyright (C) 2020  Ngô Ngọc Đức Huy
+    This file is part of MiniGH.
+
+    MiniGH is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    MiniGH is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with MiniGH.  If not, see <https://www.gnu.org/licenses/>.
+-->
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
@@ -14,13 +31,142 @@ android:id="@+id/drawer_layout">
 
     <include layout="@layout/main_toolbar"/>
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Profile"
-        android:gravity="center"/>
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:orientation="horizontal">
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:shapeAppearanceOverlay="@style/circleImageViewStyle"
+                android:src="@drawable/ic_launcher_background"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/profile_picture" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:text="@string/fullname"
+                    android:textStyle="bold"
+                    android:textColor="@color/textColor"
+                    style="@style/Headline5"
+                    android:gravity="bottom" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:gravity="top"
+                    style="@style/Headline5"
+                    android:text="@string/username"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:orientation="horizontal">
+            <info.androidhive.fontawesome.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fa_star"
+                android:textColor="@color/secondaryDarkColor"
+                android:layout_margin="@dimen/small_margin"
+                android:textSize="@dimen/icon_size"
+                app:solid_icon="true" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/med_text_size"
+                android:textColor="@color/textColor"
+                android:layout_margin="@dimen/small_margin"
+                android:text="@string/status" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:orientation="horizontal">
+            <info.androidhive.fontawesome.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fa_question_circle"
+                android:textColor="@color/secondaryDarkColor"
+                android:layout_margin="@dimen/small_margin"
+                android:textSize="@dimen/icon_size"
+                app:solid_icon="true" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/med_text_size"
+                android:textColor="@color/textColor"
+                android:layout_margin="@dimen/small_margin"
+                android:text="@string/description" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:orientation="horizontal">
+            <info.androidhive.fontawesome.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:text="@string/fa_envelope"
+                android:textColor="@color/secondaryDarkColor"
+                android:textSize="@dimen/icon_size"
+                app:solid_icon="true" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:textSize="@dimen/med_text_size"
+                android:textColor="@color/textColor"
+                android:text="@string/email" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:orientation="horizontal">
+            <info.androidhive.fontawesome.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:text="@string/fa_users_solid"
+                android:textColor="@color/secondaryDarkColor"
+                android:textSize="@dimen/icon_size"
+                app:solid_icon="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:textSize="@dimen/med_text_size"
+                android:textColor="@color/textColor"
+                android:text="5 followers" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:textSize="@dimen/med_text_size"
+                android:textColor="@color/textColor"
+                android:text="5 following" />
+        </LinearLayout>
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/profile_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <androidx.viewpager.widget.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/profile_view_pager" />
+    </LinearLayout>
 </LinearLayout>
-// add code above this
 
 <RelativeLayout
     android:layout_width="300dp"

@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">miniGH</string>
+    <string name="profile">Profile</string>
+    <string name="profile_picture">profile picture</string>
+    <string name="fullname">Ngô Ngọc Đức Huy</string>
+    <string name="username">Huy-Ngo</string>
+    <string name="status">Status</string>
+    <string name="description">Description</string>
+    <string name="email">huy-ngo@example.com</string>
 </resources>
