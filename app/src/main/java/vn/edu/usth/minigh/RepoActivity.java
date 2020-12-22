@@ -16,7 +16,7 @@ import vn.edu.usth.minigh.RepoPagerAdapter;
 
 public class RepoActivity extends BaseActivity {
     private static final String[] TAB_NAMES = {
-        "miniGH", "Code", "Issues", "Commits"};
+        "miniGH", "Code", "Issues", "Commit", "PRs"};
 
     private ViewPager2 viewPager;
     private FragmentStateAdapter pagerAdapter;
@@ -39,6 +39,7 @@ public class RepoActivity extends BaseActivity {
         viewPager = findViewById(R.id.pager);
         pagerAdapter = new RepoPagerAdapter(this);
         viewPager.setAdapter(pagerAdapter);
+        viewPager.setOffscreenPageLimit(3);
         new TabLayoutMediator(
             findViewById(R.id.tab_layout), viewPager,
             (tab, position) -> tab.setText(TAB_NAMES[position])).attach();
