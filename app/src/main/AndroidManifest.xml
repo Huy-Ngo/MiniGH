@@ -13,6 +13,15 @@
             android:name=".IssueDiscussionActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
+            android:name=".PRDiscussionActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".ProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RepoActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".ProfileActivity"
             android:screenOrientation="portrait" />
         <activity

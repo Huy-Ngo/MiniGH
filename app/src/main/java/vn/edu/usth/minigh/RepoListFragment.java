@@ -35,6 +35,8 @@ public class RepoListFragment extends Fragment {
     private int nRepos;
     private Random r;
 
+    public RepoListFragment() {
+    }
     public RepoListFragment(int nRepos) {
         // TODO: Empty this after the demo
         this.nRepos = nRepos;

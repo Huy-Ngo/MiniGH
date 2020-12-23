@@ -1,5 +1,7 @@
 package vn.edu.usth.minigh;
 
+import android.content.Intent;
+import android.view.View;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
@@ -57,5 +59,11 @@ public class prActivity extends BaseActivity {
             ft.replace(R.id.prsFragment, frag);
             ft.commit();
         }
+    }
+
+    public void goToPR(View view) {
+        Intent intent = new Intent(this, PRDiscussionActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 }
