@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".prActivity"></activity>
+        <activity android:name=".IssueActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".RepoActivity" />
         <activity

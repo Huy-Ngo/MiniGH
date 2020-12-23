@@ -31,10 +31,10 @@ public class RepoActivity extends BaseActivity {
         TextView txt_toolbar = (TextView) findViewById(R.id.main_text_bar);
         txt_toolbar.setText("Repository");
 
-        LinearLayout layout = findViewById(R.id.repo);
-        layout.setBackgroundColor(
-            getApplicationContext().getResources()
-            .getColor(R.color.secondaryColor));
+//        LinearLayout layout = findViewById(R.id.repo);
+//        layout.setBackgroundColor(
+//            getApplicationContext().getResources()
+//            .getColor(R.color.secondaryColor));
 
         viewPager = findViewById(R.id.pager);
         pagerAdapter = new RepoPagerAdapter(this);

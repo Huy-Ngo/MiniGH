@@ -66,6 +66,16 @@ public class BaseActivity extends AppCompatActivity {
             redirectActivity(RepoActivity.class);
         }
     }
+    public void clickIssue(View view){
+        if (this.getClass() != IssueActivity.class) {
+            redirectActivity(IssueActivity.class);
+        }
+    }
+    public void clickPRs(View view){
+        if (this.getClass() != prActivity.class) {
+            redirectActivity(prActivity.class);
+        }
+    }
 
     public void logout(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
