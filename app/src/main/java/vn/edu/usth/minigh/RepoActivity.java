@@ -1,6 +1,7 @@
 package vn.edu.usth.minigh;
 
 import android.os.Bundle;
+import android.content.Intent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -55,5 +56,15 @@ public class RepoActivity extends BaseActivity {
     }
 
     public void goToIssue(View view) {
+        Intent intent = new Intent(this, IssueDiscussionActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
+
+    public void goToPR(View view) {
+        Intent intent = new Intent(this, PRDiscussionActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
 }
