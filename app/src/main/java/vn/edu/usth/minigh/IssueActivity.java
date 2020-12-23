@@ -21,7 +21,6 @@ public class IssueActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_issue);
 
         TextView txt_toolbar = (TextView) findViewById(R.id.main_text_bar);
         txt_toolbar.setText("Issues");
