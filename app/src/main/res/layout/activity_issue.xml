@@ -45,6 +45,7 @@
                 android:layout_weight="1"/>
         </info.hoang8f.android.segmented.SegmentedGroup>
         <FrameLayout
+            android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/issuesFragment"

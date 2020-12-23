@@ -6,14 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".prActivity"
     android:id="@+id/drawer_layout">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
         <include layout="@layout/main_toolbar"/>
-
         <info.hoang8f.android.segmented.SegmentedGroup
             xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
             android:id="@+id/segmented2"
@@ -59,5 +56,4 @@
         android:background="#ffffff">
         <include layout="@layout/main_nav_drawer"/>
     </RelativeLayout>
-
 </androidx.drawerlayout.widget.DrawerLayout>

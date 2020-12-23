@@ -13,10 +13,19 @@
         <item name="cornerSize">50%</item>
     </style>
 
-<!--    <style name="RadioButton">-->
-<!--        <attr name="sc_corner_radius" format="dimension" />-->
-<!--        <attr name="sc_border_width" format="dimension" />-->
-<!--        <attr name="sc_tint_color" format="color" />-->
-<!--        <attr name="sc_checked_text_color" format="color" />-->
-<!--    </style>-->
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--    <style name="RadioButton">-->
+    <!--        <attr name="sc_corner_radius" format="dimension" />-->
+    <!--        <attr name="sc_border_width" format="dimension" />-->
+    <!--        <attr name="sc_tint_color" format="color" />-->
+    <!--        <attr name="sc_checked_text_color" format="color" />-->
+    <!--    </style>-->
 </resources>

@@ -53,4 +53,7 @@ public class RepoActivity extends BaseActivity {
         else
             viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
     }
+
+    public void goToIssue(View view) {
+    }
 }

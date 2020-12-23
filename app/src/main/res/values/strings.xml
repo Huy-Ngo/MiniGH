@@ -12,5 +12,16 @@
     <string name="status">Status</string>
     <string name="description">Description</string>
     <string name="email">huy-ngo@example.com</string>
+    <string name="lorem_short">
+            Lorem ipsum dolor sit amet. Eius dolore quaerat voluptatem.
+    </string>
+    <string name="lorem_long">
+            Non consectetur dolorem labore quiquia.
+            Sed sit etincidunt quaerat. Modi numquam quiquia sit.
+            Velit amet adipisci quisquam.
+            Velit quiquia eius quaerat eius sed.
+            Velit modi quisquam tempora aliquam dolore porro.
+    </string>
+    <string name="action_settings">Settings</string>
 </resources>
 

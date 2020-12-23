@@ -1,6 +1,8 @@
 package vn.edu.usth.minigh;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -61,5 +63,11 @@ public class IssueActivity extends BaseActivity {
             ft.replace(R.id.issuesFragment, frag);
             ft.commit();
         }
+    }
+
+    public void goToIssue(View view) {
+        Intent intent = new Intent(this, IssueDiscussionActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 }
