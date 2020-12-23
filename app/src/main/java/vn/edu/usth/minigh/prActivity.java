@@ -26,7 +26,7 @@ public class prActivity extends BaseActivity {
         layout.setBackgroundColor(getApplicationContext().getResources().getColor(R.color.secondaryColor));
 
         RadioGroup sg = (RadioGroup)findViewById(R.id.segmented2);
-        sg.check(R.id.button21);
+        sg.check(R.id.button31);
         addFrag("Open");
         sg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
