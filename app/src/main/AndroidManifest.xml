@@ -9,20 +9,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".prActivity"></activity>
-        <activity android:name=".IssueActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".RepoActivity" />
+        <activity
+            android:name=".ProfileActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".RepoActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".prActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".IssueActivity"
+                  android:screenOrientation="portrait"/>
         <activity
             android:name=".AuthActivity"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity
             android:name=".SplashActivity"
+            android:screenOrientation="portrait"
             android:noHistory="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
     </application>
