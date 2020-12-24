@@ -22,12 +22,6 @@
             android:name=".RepoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ProfileActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".RepoActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".prActivity"
             android:screenOrientation="portrait" />
         <activity
