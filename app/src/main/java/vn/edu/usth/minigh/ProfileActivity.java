@@ -24,6 +24,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.material.appbar.AppBarLayout;
+import androidx.appcompat.widget.Toolbar;
+
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -40,9 +43,10 @@ public class ProfileActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      
+
         TextView txt_toolbar = (TextView) findViewById(R.id.main_text_bar);
-        txt_toolbar.setText("Profile");
+        txt_toolbar.setText(R.string.username);
+
         LinearLayout layout = this.findViewById(R.id.profile);
         layout.setBackgroundColor(getApplicationContext().getResources().getColor(R.color.secondaryColor));
       
