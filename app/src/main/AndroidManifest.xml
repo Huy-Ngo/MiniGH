@@ -22,7 +22,7 @@
             android:name=".RepoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".prActivity"
+            android:name=".PRActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".IssueActivity"

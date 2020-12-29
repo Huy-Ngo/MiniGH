@@ -72,8 +72,8 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
     public void clickPRs(View view){
-        if (this.getClass() != prActivity.class) {
-            redirectActivity(prActivity.class);
+        if (this.getClass() != PRActivity.class) {
+            redirectActivity(PRActivity.class);
         }
     }
 

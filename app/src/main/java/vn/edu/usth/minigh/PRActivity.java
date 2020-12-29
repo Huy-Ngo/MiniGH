@@ -11,9 +11,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-public class prActivity extends BaseActivity {
+public class PRActivity extends BaseActivity {
     Fragment frag;
-    public prActivity() {
+    public PRActivity() {
         super(R.layout.activity_pr);
     }
 
