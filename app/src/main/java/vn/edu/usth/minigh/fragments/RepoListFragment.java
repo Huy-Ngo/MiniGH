@@ -48,6 +48,8 @@ public class RepoListFragment extends Fragment {
         RepoPreviewFragment fragment = new RepoPreviewFragment();
         Bundle args = new Bundle();
         String[] languages = {"Java", "JavaScript", "C", "C#", "C++",
+            "PHP", "Kotlin", "Go", "Rust", "Python", "QML", "TeX", "Ruby",
+            "Perl", "Pascal", "Lua", "MATLAB", "Makefile", "Dart", "Common Lisp",
             "Vim script", "Shell"};
         String[] licenses = {"MIT", "GPL-3.0", "AGPL-3.0", "LGPL-3.0"};
         args.putString("owner", "Huy-Ngo");

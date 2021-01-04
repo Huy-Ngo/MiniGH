@@ -42,7 +42,7 @@ public class ProfileViewPagerAdapter extends FragmentPagerAdapter {
                 fragment = new RepoListFragment(6);
                 break;
             case 1:
-                fragment = new RepoListFragment(10);
+                fragment = new RepoListFragment(69);
                 break;
             default:
                 fragment = new Fragment();

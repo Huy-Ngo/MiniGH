@@ -18,6 +18,14 @@
 
 package vn.edu.usth.minigh;
 
+import java.io.InputStream;
+import java.io.StringWriter;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.Writer;
+import java.io.Reader;
+import java.io.IOException;
+
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -29,6 +37,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import org.json.JSONObject;
+import org.json.JSONException;
 
 import info.androidhive.fontawesome.FontTextView;
 
@@ -153,24 +164,33 @@ public class RepoPreviewFragment extends Fragment {
      * Return the color for the main language
      * */
     private int getMainLanguageColor() {
-        // TODO: get color from https://github.com/ozh/github-colors/blob/master/colors.json
-        switch(this.mMainLanguage) {
-            case "C":
-                return Color.parseColor("#555555");
-            case "C#":
-                return Color.parseColor("#178600");
-            case "C++":
-                return Color.parseColor("#F34B7D");
-            case "Java":
-                return Color.parseColor("#b07219");
-            case "JavaScript":
-                return Color.parseColor("#f1e05a");
-            case "Python":
-                return Color.parseColor("#3572A5");
-            case "PHP":
-                return Color.parseColor("#4F5D95");
-            default:
-                return Color.BLACK;
+        JSONObject colorscheme;
+        String jsonString;
+        InputStream stream = getContext()
+            .getResources().openRawResource(R.raw.gh_color);
+        Writer writer = new StringWriter();
+        char[] buffer = new char[1024];
+        try {
+            Reader reader = new BufferedReader(new InputStreamReader(stream, "UTF-8"));
+            int n;
+            while ((n = reader.read(buffer)) != -1) {
+                writer.write(buffer, 0, n);
+            }
+            jsonString = writer.toString();
+            stream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return Color.BLACK;
         }
+
+        int color;
+        try {
+            colorscheme = new JSONObject(jsonString);
+            JSONObject language = colorscheme.getJSONObject(this.mMainLanguage);
+            color = Color.parseColor(language.getString("color"));
+        } catch (JSONException e) {
+            color = Color.BLACK;
+        }
+        return color;
     }
 }
