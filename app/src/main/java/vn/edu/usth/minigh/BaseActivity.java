@@ -84,9 +84,9 @@ public class BaseActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                SessionManagement sessionManagement = new SessionManagement(
+                SessionManager manager = new SessionManager(
                     getApplicationContext());
-                sessionManagement.removeSession();
+                manager.removeSession();
                 redirectActivity(AuthActivity.class);
             }
         });
