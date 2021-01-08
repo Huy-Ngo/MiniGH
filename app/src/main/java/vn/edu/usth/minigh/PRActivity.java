@@ -1,8 +1,8 @@
 package vn.edu.usth.minigh;
 
 import android.content.Intent;
-import android.view.View;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import vn.edu.usth.minigh.fragments.PullRequestFragment;
 
 public class PRActivity extends BaseActivity {
     Fragment frag;
@@ -27,38 +29,28 @@ public class PRActivity extends BaseActivity {
 
         RadioGroup sg = (RadioGroup)findViewById(R.id.segmented2);
         sg.check(R.id.button31);
-        addFrag("Open");
+        addFrag("pr", 5);
         sg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch(checkedId){
                     default:
-                        addFrag("Open");
+                        addFrag("pr", 5);
                         break;
                     case R.id.button32:
-                        addFrag("Close");
+                        addFrag("Close", 3);
                         break;
                 }
             }
         });
     }
-    public void addFrag(String txt){
-        if (txt=="Open"){
-            FragmentManager fm = getSupportFragmentManager();
-            frag = fm.findFragmentById(R.id.issuesFragment);
-            FragmentTransaction ft = fm.beginTransaction();
-            frag = new PROpenFragment();
-            ft.replace(R.id.prsFragment, frag);
-            ft.commit();
-        }
-        if(txt == "Close"){
-            FragmentManager fm = getSupportFragmentManager();
-            frag = fm.findFragmentById(R.id.issuesFragment);
-            FragmentTransaction ft = fm.beginTransaction();
-            frag = new PRClosedFragment();
-            ft.replace(R.id.prsFragment, frag);
-            ft.commit();
-        }
+    public void addFrag(String txt, int number){
+        FragmentManager fm = getSupportFragmentManager();
+        frag = fm.findFragmentById(R.id.prsFragment);
+        FragmentTransaction ft = fm.beginTransaction();
+        frag = new PullRequestFragment(txt, number);
+        ft.replace(R.id.prsFragment, frag);
+        ft.commit();
     }
 
     public void goToPR(View view) {

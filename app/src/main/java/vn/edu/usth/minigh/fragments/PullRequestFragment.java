@@ -1,4 +1,4 @@
-package vn.edu.usth.minigh;
+package vn.edu.usth.minigh.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,35 +7,32 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-import vn.edu.usth.minigh.fragments.IssuePrFragment;
+import vn.edu.usth.minigh.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link IssueFragment#newInstance} factory method to
+ * Use the {@link PullRequestFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class IssueFragment extends Fragment {
+public class PullRequestFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    private String nStatus;
-    private int nNumber;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
-    public IssueFragment() {
+    private String nStatus;
+    private int nNumber;
+    public PullRequestFragment() {
         // Required empty public constructor
     }
-    public IssueFragment(String status, int number) {
-        // Required empty public constructor
+    public PullRequestFragment(String status, int number){
         this.nStatus = status;
         this.nNumber = number;
     }
-
     private IssuePrFragment generateForm(int i){
         IssuePrFragment fragment = new IssuePrFragment();
         String[] ghname = new String[] {"GHname/GHREPOname #1", "GHname/GHREPOname #2",
@@ -55,11 +52,11 @@ public class IssueFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment IssueFragment.
+     * @return A new instance of fragment PullRequestFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static IssueFragment newInstance(String param1, String param2) {
-        IssueFragment fragment = new IssueFragment();
+    public static PullRequestFragment newInstance(String param1, String param2) {
+        PullRequestFragment fragment = new PullRequestFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -79,11 +76,11 @@ public class IssueFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_issue, container, false);
-
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_pull_request, container, false);
         for (int i = 0 ; i< nNumber; i++){
             Fragment ip = this.generateForm(i);
-            getChildFragmentManager().beginTransaction().add(R.id.issueTest, ip).commit();
+            getChildFragmentManager().beginTransaction().add(R.id.prTest, ip).commit();
         }
         return view;
     }

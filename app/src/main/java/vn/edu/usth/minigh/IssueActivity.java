@@ -29,39 +29,29 @@ public class IssueActivity extends BaseActivity {
 
         RadioGroup sg = (RadioGroup)findViewById(R.id.segmented2);
         sg.check(R.id.button21);
-        addFrag("Open");
+        addFrag("Open", 3);
         sg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch(checkedId){
                     default:
-                        addFrag("Open");
+                        addFrag("Open", 3);
                         break;
                     case R.id.button22:
-                        addFrag("Close");
+                        addFrag("Close", 5);
                         break;
                 }
             }
         });
 
     }
-    public void addFrag(String txt){
-        if (txt=="Open"){
-            FragmentManager fm = getSupportFragmentManager();
-            frag = fm.findFragmentById(R.id.issuesFragment);
-            FragmentTransaction ft = fm.beginTransaction();
-            frag = new IssuesOpenFragment();
-            ft.replace(R.id.issuesFragment, frag);
-            ft.commit();
-        }
-        if(txt == "Close"){
-            FragmentManager fm = getSupportFragmentManager();
-            frag = fm.findFragmentById(R.id.issuesFragment);
-            FragmentTransaction ft = fm.beginTransaction();
-            frag = new IssuesClosedFragment();
-            ft.replace(R.id.issuesFragment, frag);
-            ft.commit();
-        }
+    public void addFrag(String txt, int number){
+        FragmentManager fm = getSupportFragmentManager();
+        frag = fm.findFragmentById(R.id.issuesFragment);
+        FragmentTransaction ft = fm.beginTransaction();
+        frag = new vn.edu.usth.minigh.IssueFragment(txt, number);
+        ft.replace(R.id.issuesFragment, frag);
+        ft.commit();
     }
 
     public void goToIssue(View view) {
