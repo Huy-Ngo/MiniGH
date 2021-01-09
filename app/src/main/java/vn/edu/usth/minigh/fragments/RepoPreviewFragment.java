@@ -16,7 +16,7 @@
  * along with MiniGH.  If not, see <https://www.gnu.org/licenses/>.
  **/
 
-package vn.edu.usth.minigh;
+package vn.edu.usth.minigh.fragments;
 
 import java.io.InputStream;
 import java.io.StringWriter;
@@ -39,6 +39,8 @@ import org.json.JSONObject;
 import org.json.JSONException;
 
 import info.androidhive.fontawesome.FontTextView;
+
+import vn.edu.usth.minigh.R;
 
 /**
  * A simple {@link Fragment} subclass.

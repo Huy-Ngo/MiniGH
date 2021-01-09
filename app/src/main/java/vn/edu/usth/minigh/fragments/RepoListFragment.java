@@ -16,7 +16,7 @@
  * along with MiniGH.  If not, see <https://www.gnu.org/licenses/>.
  **/
 
-package vn.edu.usth.minigh;
+package vn.edu.usth.minigh.fragments;
 
 // TODO: Empty this after the demo
 import java.util.Random;
@@ -30,6 +30,8 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import vn.edu.usth.minigh.R;
 
 public class RepoListFragment extends Fragment {
     private int nRepos;

@@ -1,4 +1,4 @@
-package vn.edu.usth.minigh;
+package vn.edu.usth.minigh.fragments;
 
 import android.os.Bundle;
 import android.view.View;
@@ -7,6 +7,8 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import io.noties.markwon.Markwon;
+
+import vn.edu.usth.minigh.R;
 
 public class RepoSummaryFragment extends Fragment {
     private static final String README = "# Heading 1\n"

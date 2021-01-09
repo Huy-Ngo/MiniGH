@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import vn.edu.usth.minigh.RepoSummaryFragment;
+import vn.edu.usth.minigh.fragments.RepoSummaryFragment;
 
 class RepoPagerAdapter extends FragmentStateAdapter {
     public RepoPagerAdapter(FragmentActivity fa) { super(fa); }
