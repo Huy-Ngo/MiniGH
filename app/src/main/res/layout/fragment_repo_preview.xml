@@ -47,10 +47,10 @@
             android:id="@+id/repo_name_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textSize="@dimen/med_text_size"
+            android:layout_marginTop="@dimen/small_margin"
             android:textColor="@color/textColor"
-            android:text="repo name"/>
+            android:textSize="@dimen/small_text_size"
+            android:textStyle="bold"/>
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
@@ -90,10 +90,10 @@
                 android:textSize="@dimen/small_text_size"/>
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/forks"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="16dp"
-            android:id="@+id/forks"
             android:orientation="horizontal">
             <info.androidhive.fontawesome.FontTextView
                 android:layout_width="wrap_content"
@@ -105,15 +105,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="3dp"
-                android:id="@+id/forks_text"
-                android:text="13"
+                android:id="@+id/forks_count"
+                android:text="0"
                 android:textSize="@dimen/small_text_size"/>
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/stargazers"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="16dp"
-            android:id="@+id/stars"
             android:orientation="horizontal">
             <info.androidhive.fontawesome.FontTextView
                 android:layout_width="wrap_content"
@@ -125,8 +125,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="3dp"
-                android:id="@+id/stars_text"
-                android:text="4"
+                android:id="@+id/stargazers_count"
+                android:text="0"
                 android:textSize="@dimen/small_text_size"/>
         </LinearLayout>
         <LinearLayout
