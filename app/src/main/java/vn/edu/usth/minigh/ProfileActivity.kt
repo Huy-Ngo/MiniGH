@@ -24,7 +24,6 @@ import android.widget.LinearLayout
 import android.widget.TextView
 
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 
@@ -33,28 +32,36 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 import vn.edu.usth.minigh.fragments.RepoListFragment
 
-class ProfilePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
-    override fun getItemCount(): Int = 2
-    override fun createFragment(position: Int): Fragment =
-        RepoListFragment(if (position == 0) 6 else 69)
-}
-
 class ProfileActivity : BaseActivity(R.layout.activity_profile) {
+    private lateinit var viewPager: ViewPager2
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val drawerTab = findViewById<LinearLayout>(R.id.profile)
         drawerTab.setBackgroundColor(getColor(R.color.secondaryColor))
 
-        val txt_toolbar = findViewById<TextView>(R.id.main_text_bar)
-        txt_toolbar.setText(R.string.username)
+        val txtToolbar = findViewById<TextView>(R.id.main_text_bar)
+        txtToolbar.setText(R.string.username)
 
-        val viewPager = findViewById<ViewPager2>(R.id.profile_view_pager)
-        viewPager.setAdapter(ProfilePagerAdapter(this))
+        viewPager = findViewById(R.id.profile_view_pager)
+        viewPager.setAdapter(object : FragmentStateAdapter(this) {
+            override fun getItemCount(): Int = 2
+            override fun createFragment(position: Int): Fragment =
+                RepoListFragment(if (position == 0) 6 else 69)
+        })
+
         val tabLayout = findViewById<TabLayout>(R.id.profile_tab_layout)
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = if (position == 0) "Pinned" else "All Repositories"
         }.attach()
+    }
+
+    override fun onBackPressed() {
+        if (viewPager.getCurrentItem() == 0)
+            super.onBackPressed()
+        else
+            viewPager.setCurrentItem(viewPager.getCurrentItem() - 1)
     }
 
     fun goToRepo(view: View) {

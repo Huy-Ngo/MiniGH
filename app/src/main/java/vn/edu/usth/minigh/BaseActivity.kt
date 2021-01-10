@@ -14,7 +14,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 
 abstract class BaseActivity(layoutID: Int) : AppCompatActivity(layoutID) {
-    private var drawerLayout: DrawerLayout? = null
+    private lateinit var drawerLayout: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,14 +28,14 @@ abstract class BaseActivity(layoutID: Int) : AppCompatActivity(layoutID) {
 
     override fun onPause() {
         super.onPause()
-        if (drawerLayout!!.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout!!.closeDrawer(GravityCompat.START)
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START)
         }
     }
 
     fun redirectActivity(aclass: Class<*>) {
         if (this::class.java == aclass) {
-            drawerLayout!!.closeDrawer(GravityCompat.START)
+            drawerLayout.closeDrawer(GravityCompat.START)
         } else {
             val intent = Intent(this, aclass)
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -46,7 +46,7 @@ abstract class BaseActivity(layoutID: Int) : AppCompatActivity(layoutID) {
     fun clickProfile(view: View) = redirectActivity(ProfileActivity::class.java)
     fun clickIssues(view: View) = redirectActivity(IssueActivity::class.java)
     fun clickPRs(view: View) = redirectActivity(PRActivity::class.java)
-    fun openDrawer(view: View) = drawerLayout!!.openDrawer(GravityCompat.START)
+    fun openDrawer(view: View) = drawerLayout.openDrawer(GravityCompat.START)
 
     fun logout(view: View) {
         // TODO: define layout statically
