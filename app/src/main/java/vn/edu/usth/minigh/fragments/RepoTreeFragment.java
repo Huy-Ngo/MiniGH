@@ -1,4 +1,4 @@
-package vn.edu.usth.minigh;
+package vn.edu.usth.minigh.fragments;
 
 import android.os.Bundle;
 
@@ -13,9 +13,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class CodeFragment extends Fragment {
+import vn.edu.usth.minigh.R;
 
-    public CodeFragment() {
+public class RepoTreeFragment extends Fragment {
+
+    public RepoTreeFragment() {
         super(R.layout.fragment_code);
     }
 

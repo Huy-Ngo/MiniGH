@@ -1,4 +1,4 @@
-package vn.edu.usth.minigh;
+package vn.edu.usth.minigh.fragments;
 
 import android.os.Bundle;
 
@@ -13,9 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.google.android.material.tabs.TabLayout;
 
-public class PRFragment extends Fragment {
+import vn.edu.usth.minigh.R;
 
-    public PRFragment() {
+public class PRsListFragment extends Fragment {
+
+    public PRsListFragment() {
         super(R.layout.fragment_pr);
     }
 

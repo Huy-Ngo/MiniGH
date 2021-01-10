@@ -1,4 +1,4 @@
-package vn.edu.usth.minigh;
+package vn.edu.usth.minigh.fragments;
 
 import android.os.Bundle;
 
@@ -14,9 +14,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class CommitFragment extends Fragment {
+import vn.edu.usth.minigh.R;
 
-    public CommitFragment() {
+public class RepoLogFragment extends Fragment {
+
+    public RepoLogFragment() {
         super(R.layout.fragment_commit);
     }
 

@@ -1,4 +1,4 @@
-package vn.edu.usth.minigh;
+package vn.edu.usth.minigh.fragments;
 
 import android.os.Bundle;
 
@@ -13,9 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.google.android.material.tabs.TabLayout;
 
-public class IssuesFragment extends Fragment {
+import vn.edu.usth.minigh.R;
 
-    public IssuesFragment() {
+public class IssuesListFragment extends Fragment {
+
+    public IssuesListFragment() {
         super(R.layout.fragment_issues);
     }
 
