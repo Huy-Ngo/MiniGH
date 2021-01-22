@@ -2,6 +2,7 @@ package vn.edu.usth.minigh;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
@@ -11,10 +12,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import vn.edu.usth.minigh.fragments.IssuePrFragment;
 import vn.edu.usth.minigh.fragments.PullRequestFragment;
 
 public class PRActivity extends BaseActivity {
     Fragment frag;
+    IssuePrFragment clickFrag;
     public PRActivity() {
         super(R.layout.activity_pr);
     }
@@ -53,9 +56,15 @@ public class PRActivity extends BaseActivity {
         ft.commit();
     }
 
-    public void goToPR(View view) {
-        Intent intent = new Intent(this, PRDiscussionActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    public void goToDiscuss(View view) {
+        Intent intent = new Intent(this, DiscussionActivity.class);
+//        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        
+        TextView title = (TextView) view.findViewById(R.id.issuePrContent);
+        intent.putExtra("title", (String) title.getText());
+
+        TextView description =(TextView) view.findViewById(R.id.issuePrContent);
+        intent.putExtra("description", description.getText());
         startActivity(intent);
     }
 }

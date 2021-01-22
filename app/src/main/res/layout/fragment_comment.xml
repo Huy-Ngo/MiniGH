@@ -24,30 +24,66 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".CommentFragment">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        app:shapeAppearanceOverlay="@style/circleImageViewStyle"
-        android:src="@drawable/ic_launcher_background"
-        android:layout_margin="16dp"
-        android:id="@+id/profile_picture"
-        android:contentDescription="@string/profile_picture" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/border"
-        android:id="@+id/comment"
-        android:layout_toRightOf="@id/profile_picture"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginBottom="9dp"
+        android:background="@drawable/styling_commit"
+        android:padding="9dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="9dp">
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                app:shapeAppearanceOverlay="@style/circleImageViewStyle"
+                android:src="@drawable/ic_launcher_background"
+                android:id="@+id/profile_picture"
+                android:contentDescription="@string/profile_picture" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/username"
+                android:text="name here"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/med_text_size"
+                android:layout_marginHorizontal="9dp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="16h"
+                android:textSize="@dimen/med_text_size"
+                android:layout_gravity="bottom|right"/>
+        </LinearLayout>
         <TextView
             android:layout_width="wrap_content"
-            android:id="@+id/username"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:id="@+id/content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/med_text_size"
+            android:text="@string/lorem_short"
+            android:layout_marginBottom="9dp"
+            android:id="@+id/content"/>
     </LinearLayout>
+
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/border"-->
+<!--        android:id="@+id/comment"-->
+<!--        android:layout_toRightOf="@id/profile_picture"-->
+<!--        android:orientation="vertical">-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:id="@+id/username"-->
+<!--            android:layout_height="wrap_content"/>-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:id="@+id/content"-->
+<!--            android:layout_height="wrap_content"/>-->
+<!--    </LinearLayout>-->
 
 </RelativeLayout>

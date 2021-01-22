@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -67,7 +68,7 @@ public class IssuePrFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_issue_pr, container, false);
-        ImageView image = view.findViewById(R.id.imageIP);
+        ImageView image = view.findViewById(R.id.issuePrIcon);
         if(mStatus == "Close"){
             image.setBackgroundResource(R.drawable.done);
         }else if (mStatus == "pr"){
@@ -76,10 +77,17 @@ public class IssuePrFragment extends Fragment {
         else{
             image.setBackgroundResource(R.drawable.error);
         }
-        TextView name = view.findViewById(R.id.ghnameIP);
+        TextView name = view.findViewById(R.id.issuePrGhname);
         name.setText(mGHName);
-        TextView ipContent = view.findViewById(R.id.contentIP);
+        TextView ipContent = view.findViewById(R.id.issuePrContent);
         ipContent.setText(mContent);
+
+        LinearLayout ll = view.findViewById(R.id.issuesPrFrame);
+
+//        String value = (String) v.getTag();
+//        Intent intent = new Intent(getActivity().getBaseContext(), DiscussionActivity.class);
+//        intent.putExtra("ghname", value);
+//        getActivity().startActivity(intent);
         return view;
     }
 }

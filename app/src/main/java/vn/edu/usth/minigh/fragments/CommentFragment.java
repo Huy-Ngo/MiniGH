@@ -19,13 +19,12 @@
 package vn.edu.usth.minigh;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -83,8 +82,11 @@ public class CommentFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_comment, container, false);
         TextView username = view.findViewById(R.id.username);
         username.setText(mUsername);
-        TextView content = view.findViewById(R.id.content);
-        content.setText(mContent);
+//        TextView content = view.findViewById(R.id.content);
+//        content.setText(mContent);
+
+
         return view;
     }
+
 }

@@ -19,25 +19,18 @@
 package vn.edu.usth.minigh;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
-import com.google.android.material.appbar.CollapsingToolbarLayout;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-
-import android.view.View;
 
 import java.util.Random;
 
-public class IssueDiscussionActivity extends BaseActivity {
+public class DiscussionActivity extends BaseActivity {
     private Random r;
 
-    public IssueDiscussionActivity() {
-        super(R.layout.activity_issue_discussion);
+    public DiscussionActivity() {
+        super(R.layout.activity_discussion);
         r = new Random(123456);
     }
 
@@ -60,8 +53,15 @@ public class IssueDiscussionActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        TextView txt_toolbar = (TextView) findViewById(R.id.main_text_bar);
-        txt_toolbar.setText("Style issue discussion activity");
+
+        String title = getIntent().getStringExtra("title");
+        TextView ghname = (TextView) findViewById(R.id.discussTitle);
+        ghname.setText(title);
+
+        String descrip = getIntent().getStringExtra("description");
+        TextView content = (TextView) findViewById(R.id.discussDescription);
+        content.setText(descrip);
+
         int nComments = 7;
         for (int i = 0; i < nComments; i++) {
             Fragment fragment = generateComment();
@@ -69,5 +69,6 @@ public class IssueDiscussionActivity extends BaseActivity {
                     R.id.comment_container, fragment
             ).commit();
         }
+
     }
 }

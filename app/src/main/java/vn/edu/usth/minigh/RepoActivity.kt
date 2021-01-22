@@ -12,7 +12,6 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
-import vn.edu.usth.minigh.BaseActivity
 import vn.edu.usth.minigh.fragments.IssuesListFragment
 import vn.edu.usth.minigh.fragments.PRsListFragment
 import vn.edu.usth.minigh.fragments.RepoLogFragment
@@ -55,6 +54,5 @@ class RepoActivity : BaseActivity(R.layout.activity_repo) {
     }
 
     fun goTo(aclass: Class<*>) = startActivity(Intent(this, aclass))
-    fun goToIssue(view: View) = goTo(IssueDiscussionActivity::class.java)
-    fun goToPR(view: View) = goTo(PRDiscussionActivity::class.java)
+    fun goToDiscuss(view: View) = goTo(DiscussionActivity::class.java)
 }
