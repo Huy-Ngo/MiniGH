@@ -9,7 +9,7 @@ interface GitHub {
     @GET("/users/{username}")
     suspend fun user(@Path("username") username: String): User
 
-    @GET("/users/{username}/repos")
+    @GET("/users/{username}/repos?sort=updated")
     suspend fun repos(@Path("username") username: String): Array<MinRepo>
 }
 
