@@ -52,7 +52,7 @@ class RepoPreviewFragment() : Fragment(R.layout.fragment_repo_preview) {
         }
 
         args.getString("license")?.also {
-            view.findViewById<TextView>(R.id.license_text).text = it
+            view.findViewById<TextView>(R.id.license_text).text = if (it == "NOASSERTION") "Other" else it
         } ?: run {
             view.findViewById<View>(R.id.license).visibility = GONE
         }
