@@ -1,6 +1,7 @@
 package vn.edu.usth.minigh.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -11,6 +12,7 @@ import io.noties.markwon.Markwon;
 import vn.edu.usth.minigh.R;
 
 public class RepoSummaryFragment extends Fragment {
+    private String repo_name;
     private static final String README = "# Heading 1\n"
         + "## Heading 2\n\n"
         + "Look, this is *emphasized*.\n\n"
@@ -23,10 +25,18 @@ public class RepoSummaryFragment extends Fragment {
     public RepoSummaryFragment() {
         super(R.layout.fragment_repo_summary);
     }
+    public RepoSummaryFragment(String repo_name) {
+        super(R.layout.fragment_repo_summary);
+        this.repo_name = repo_name;
+        Log.i("Repo Name", repo_name);
+    }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Log.i("Repo Name", repo_name);
+        TextView name = view.findViewById(R.id.repo_name);
+        name.setText(this.repo_name);
         TextView readme = view.findViewById(R.id.readme);
         Markwon.create(getActivity()).setMarkdown(readme, README);
     }

@@ -21,6 +21,7 @@ import kotlinx.coroutines.launch
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.View.GONE
 import android.widget.ImageView
@@ -78,6 +79,10 @@ class ProfileActivity : BaseActivity(R.layout.activity_profile) {
         }
     }
 
-    fun goToRepo(view: View) =
-        startActivity(Intent(this, RepoActivity::class.java))
+    fun goToRepo(view: View) {
+        val repoName = (view.findViewById<TextView>(R.id.repo_name_text)).text as String
+        val intent = Intent(this, RepoActivity::class.java)
+        intent.putExtra("repo name", repoName)
+        startActivity(intent)
+    }
 }

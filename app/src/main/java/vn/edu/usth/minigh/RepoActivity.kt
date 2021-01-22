@@ -2,6 +2,7 @@ package vn.edu.usth.minigh
 
 import android.os.Bundle
 import android.content.Intent
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 
@@ -25,6 +26,9 @@ class RepoActivity : BaseActivity(R.layout.activity_repo) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val args = intent.extras
+        val repo_name = args?.getString("repo name")
+
         val txtToolbar = findViewById<TextView>(R.id.main_text_bar)
         txtToolbar.setText("Repository")
 
@@ -37,7 +41,7 @@ class RepoActivity : BaseActivity(R.layout.activity_repo) {
                     2 -> RepoLogFragment()
                     3 -> IssuesListFragment()
                     4 -> PRsListFragment()
-                    else -> RepoSummaryFragment()
+                    else -> RepoSummaryFragment(repo_name)
                 }
         })
         val tabLayout = findViewById<TabLayout>(R.id.tab_layout)
