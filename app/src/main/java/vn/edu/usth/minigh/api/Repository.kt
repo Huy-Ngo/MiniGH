@@ -11,4 +11,5 @@ data class MinRepo(
     val stargazers_count: Int,
     val watchers_count: Int,
     val license: License?,
+    val parent: MinRepo?
 )

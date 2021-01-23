@@ -32,15 +32,27 @@ class RepoSummaryFragment(val repo_name: String) : Fragment(R.layout.fragment_re
         val name = view.findViewById<TextView>(R.id.repo_name)
         val parentRepo = view.findViewById<LinearLayout>(R.id.parent_repo)
         val parentRepoName = view.findViewById<TextView>(R.id.parent_repo_name)
+        val description = view.findViewById<TextView>(R.id.repo_description)
+        val starCount = view.findViewById<TextView>(R.id.star_count)
+        val watchCount = view.findViewById<TextView>(R.id.watch_count)
+        val forkCount = view.findViewById<TextView>(R.id.fork_count)
 
         lifecycleScope.launch {
             val repo = github.repo(repo_name)
             name.text = repo.full_name
             if (repo.fork) {
-                parentRepoName.text = repo.full_name
+                parentRepoName.text = repo.parent!!.full_name
             } else {
                 parentRepo.visibility = GONE
             }
+            repo.description?.also {
+                description.text = it
+            } ?: run {
+                description.visibility = GONE
+            }
+            starCount.text = "${repo.stargazers_count} Star" 
+            watchCount.text = "${repo.watchers_count} Watch"
+            forkCount.text = "${repo.forks_count} Fork"
         }
         val readme = view.findViewById<TextView>(R.id.readme)
         Markwon.create(getContext()!!).setMarkdown(readme, README)
