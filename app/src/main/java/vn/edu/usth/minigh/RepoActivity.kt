@@ -1,5 +1,7 @@
 package vn.edu.usth.minigh
 
+import kotlinx.coroutines.launch
+
 import android.os.Bundle
 import android.content.Intent
 import android.util.Log
@@ -9,6 +11,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import androidx.lifecycle.lifecycleScope
 
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -18,6 +21,8 @@ import vn.edu.usth.minigh.fragments.PRsListFragment
 import vn.edu.usth.minigh.fragments.RepoLogFragment
 import vn.edu.usth.minigh.fragments.RepoSummaryFragment
 import vn.edu.usth.minigh.fragments.RepoTreeFragment
+import vn.edu.usth.minigh.api.github
+import vn.edu.usth.minigh.api.MinRepo
 
 val TAB_NAMES = arrayOf("Summary", "Tree", "Log", "Issues", "PRs")
 
@@ -26,9 +31,8 @@ class RepoActivity : BaseActivity(R.layout.activity_repo) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val args = intent.extras
-        val repo_name = args?.getString("repo name")
 
+        val repo_name = intent.extras!!.getString("repo name")
         val txtToolbar = findViewById<TextView>(R.id.main_text_bar)
         txtToolbar.setText("Repository")
 
@@ -41,7 +45,7 @@ class RepoActivity : BaseActivity(R.layout.activity_repo) {
                     2 -> RepoLogFragment()
                     3 -> IssuesListFragment()
                     4 -> PRsListFragment()
-                    else -> RepoSummaryFragment(repo_name)
+                    else -> RepoSummaryFragment(repo_name!!)
                 }
         })
         val tabLayout = findViewById<TabLayout>(R.id.tab_layout)

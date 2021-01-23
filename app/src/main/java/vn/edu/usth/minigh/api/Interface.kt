@@ -16,6 +16,9 @@ interface GitHub {
 
     @GET("/users/{username}/repos?sort=updated")
     suspend fun repos(@Path("username") username: String): Array<MinRepo>
+
+    @GET("/repos/{repoName}")
+    suspend fun repo(@Path("repoName", encoded=true) repoName: String): MinRepo
 }
 
 val client = OkHttpClient.Builder()  // FIXME: use context.getCacheDir instead
