@@ -1,24 +1,26 @@
 package vn.edu.usth.minigh.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-
+import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.google.android.material.tabs.TabLayout;
+import android.widget.RadioGroup;
+import android.widget.TextView;
 
+import vn.edu.usth.minigh.DiscussionActivity;
+import vn.edu.usth.minigh.IssueFragment;
 import vn.edu.usth.minigh.R;
 
 public class IssuesListFragment extends Fragment {
+    Fragment frag;
 
     public IssuesListFragment() {
-        super(R.layout.fragment_issues);
+        super(R.layout.fragment_issues_list);
     }
 
     @Override
@@ -30,41 +32,42 @@ public class IssuesListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_issues, container, false);
-
-        PagerAdapter adapter = new HomePagerAdapter(getFragmentManager());
-        ViewPager pager = (ViewPager) view.findViewById(R.id.pagerIssue);
-        pager.setOffscreenPageLimit(2);
-        pager.setAdapter(adapter);
-
-        TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tabIssue);
-        tabLayout.setupWithViewPager(pager);
+        View view = inflater.inflate(R.layout.fragment_issues_list, container, false);
+        RadioGroup sg = (RadioGroup) view.findViewById(R.id.segmented2);
+        sg.check(R.id.button21);
+        addFrag("Open", 3);
+        sg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch(checkedId){
+                    default:
+                        addFrag("Open", 3);
+                        break;
+                    case R.id.button22:
+                        addFrag("Closed", 5);
+                        break;
+                }
+            }
+        });
         return view;
     }
 
-    public class HomePagerAdapter extends FragmentPagerAdapter {
-        private String titles[] = new String[] {"Open", "Closed"};
-        public HomePagerAdapter(FragmentManager fm){
-            super(fm);
-        }
+    public void addFrag(String txt, int number){
+        FragmentManager fm = getChildFragmentManager();
+        frag = fm.findFragmentById(R.id.issuesFragment);
+        FragmentTransaction  ft = fm.beginTransaction();
+        frag = new IssueFragment(txt, number);
+        ft.replace(R.id.issuesFragment, frag);
+        ft.commit();
+    }
 
-        @Override
-        public int getCount() {
-            return 2;
-        }
+    public void goToIssue(View view) {
+        Intent intent = new Intent(getActivity(), DiscussionActivity.class);
+        TextView title = (TextView) view.findViewById(R.id.issuePrContent);
+        intent.putExtra("title", (String) title.getText());
 
-        @Override
-        public Fragment getItem(int page) {
-            switch (page) {
-                case 0: return new IssuesOpenFragment();
-                case 1: return new IssuesClosedFragment();
-            }
-            return null;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return titles[position];
-        }
+        TextView description = (TextView) view.findViewById(R.id.issuePrContent);
+        intent.putExtra("description",(String) description.getText());
+        startActivity(intent);
     }
 }

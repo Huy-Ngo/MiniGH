@@ -41,8 +41,6 @@ public class RepoLogFragment extends Fragment {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String msg = "Switched to branch '" + parent.getItemAtPosition(position).toString() + "'";
-                Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
                 if(position == 0) {
                     CommitMainFragment mainCommit = new CommitMainFragment();
                     getFragmentManager().beginTransaction().replace(R.id.commitContent, mainCommit).commit();
