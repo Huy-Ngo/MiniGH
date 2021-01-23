@@ -3,6 +3,7 @@ package vn.edu.usth.minigh.fragments
 import kotlinx.coroutines.launch
 
 import android.os.Bundle
+import android.util.Base64
 import android.util.Log
 import android.view.View
 import android.view.View.GONE
@@ -19,14 +20,7 @@ import vn.edu.usth.minigh.api.github
 import vn.edu.usth.minigh.api.MinRepo
 
 class RepoSummaryFragment(val repo_name: String) : Fragment(R.layout.fragment_repo_summary) {
-    private val README: String = "# Heading 1\n" +
-        "## Heading 2\n\n" +
-        "Look, this is *emphasized*.\n\n" +
-        "And here's some **bold**.\n\n" +
-        "Here are unordered list items:\n\n" +
-        "* Foo\n* Bar\n* Baz\n\n" +
-        "Here are ordered list items:\n\n" +
-        "1. Uno\n2. Two\n3. Tres\n4. Four\n"
+    private var README: String = "Nothing to see here."
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val name = view.findViewById<TextView>(R.id.repo_name)
@@ -36,9 +30,11 @@ class RepoSummaryFragment(val repo_name: String) : Fragment(R.layout.fragment_re
         val starCount = view.findViewById<TextView>(R.id.star_count)
         val watchCount = view.findViewById<TextView>(R.id.watch_count)
         val forkCount = view.findViewById<TextView>(R.id.fork_count)
+        val readmeView = view.findViewById<TextView>(R.id.readme)
 
         lifecycleScope.launch {
             val repo = github.repo(repo_name)
+            val readme = github.readme(repo_name)
             name.text = repo.full_name
             if (repo.fork) {
                 parentRepoName.text = repo.parent!!.full_name
@@ -53,8 +49,12 @@ class RepoSummaryFragment(val repo_name: String) : Fragment(R.layout.fragment_re
             starCount.text = "${repo.stargazers_count} Star" 
             watchCount.text = "${repo.watchers_count} Watch"
             forkCount.text = "${repo.forks_count} Fork"
+            if (readme.encoding == "base64") {
+                README = String(Base64.decode(readme.content, Base64.DEFAULT))
+                Markwon.create(getContext()!!).setMarkdown(readmeView, README)
+            } else {
+                readmeView.text = "Sorry, this file's encoding is not supported."
+            }
         }
-        val readme = view.findViewById<TextView>(R.id.readme)
-        Markwon.create(getContext()!!).setMarkdown(readme, README)
     }
 }

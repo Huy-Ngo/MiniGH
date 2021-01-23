@@ -13,3 +13,9 @@ data class MinRepo(
     val license: License?,
     val parent: MinRepo?
 )
+
+data class Readme (
+    val name: String,
+    val content: String,
+    val encoding: String
+)
