@@ -22,9 +22,7 @@ import vn.edu.usth.minigh.R
 import vn.edu.usth.minigh.api.github
 import vn.edu.usth.minigh.api.MinRepo
 
-class RepoSummaryFragment(val repo_name: String) : Fragment(R.layout.fragment_repo_summary) {
-    private var README: String = "Nothing to see here."
-
+class RepoSummaryFragment() : Fragment(R.layout.fragment_repo_summary) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val name = view.findViewById<TextView>(R.id.repo_name)
         val parentRepo = view.findViewById<LinearLayout>(R.id.parent_repo)
@@ -35,6 +33,7 @@ class RepoSummaryFragment(val repo_name: String) : Fragment(R.layout.fragment_re
         val forkCount = view.findViewById<TextView>(R.id.fork_count)
         val readmeName = view.findViewById<TextView>(R.id.readme_fname)
         val readmeView = view.findViewById<TextView>(R.id.readme)
+        val repo_name = requireArguments().getString("repo name")!!
 
         lifecycleScope.launch {
             val repo = github.repo(repo_name)
@@ -55,13 +54,13 @@ class RepoSummaryFragment(val repo_name: String) : Fragment(R.layout.fragment_re
             forkCount.text = "${repo.forks_count} Fork"
             readmeName.text = readme.name
             if (readme.encoding == "base64") {
-                README = String(Base64.decode(readme.content, Base64.DEFAULT))
+                val README = String(Base64.decode(readme.content, Base64.DEFAULT))
                 Markwon.create(getContext()!!).setMarkdown(readmeView, README)
-                val params = LinearLayout.LayoutParams(MATCH_PARENT, WRAP_CONTENT)
-                readmeView.layoutParams = params
             } else {
                 readmeView.text = "Sorry, this file's encoding is not supported."
             }
+            val params = LinearLayout.LayoutParams(MATCH_PARENT, WRAP_CONTENT)
+            readmeView.layoutParams = params
         }
     }
 }

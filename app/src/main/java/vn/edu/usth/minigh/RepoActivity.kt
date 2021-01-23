@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
@@ -39,14 +40,17 @@ class RepoActivity : BaseActivity(R.layout.activity_repo) {
         viewPager = findViewById(R.id.pager)
         viewPager.setAdapter(object : FragmentStateAdapter(this) {
             override fun getItemCount(): Int = 5
-            override fun createFragment(position: Int): Fragment =
-                when (position) {
+            override fun createFragment(position: Int): Fragment {
+                val fragment: Fragment = when (position) {
                     1 -> RepoTreeFragment()
                     2 -> RepoLogFragment()
                     3 -> IssuesListFragment()
                     4 -> PRsListFragment()
-                    else -> RepoSummaryFragment(repo_name!!)
+                    else -> RepoSummaryFragment()
                 }
+                fragment.arguments = bundleOf("repo name" to repo_name) 
+                return fragment
+            }
         })
         val tabLayout = findViewById<TabLayout>(R.id.tab_layout)
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
