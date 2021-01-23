@@ -76,6 +76,7 @@ class ProfileActivity : BaseActivity(R.layout.activity_profile) {
             findViewById<TextView>(R.id.user_following).text =
                 "${user.following} following"
             findViewById<ImageView>(R.id.user_avatar).load(user.avatar_url)
+            findViewById<TextView>(R.id.repo_header).text = "${user.public_repos} Repositories"
         }
     }
 

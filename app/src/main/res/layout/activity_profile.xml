@@ -184,6 +184,31 @@ android:id="@+id/drawer_layout">
                 <include layout="@layout/main_toolbar"/>
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="16dp"
+            android:background="@color/backgroundColor"
+            android:orientation="horizontal">
+            <info.androidhive.fontawesome.FontTextView
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:text="@string/fa_book_solid"
+                android:textColor="@color/secondaryDarkColor"
+                android:layout_margin="@dimen/small_margin"
+                android:textSize="@dimen/icon_size"
+                app:solid_icon="true" />
+            <TextView
+                android:id="@+id/repo_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_text_size"
+                android:textColor="@color/textColor"
+                android:background="@color/backgroundColor"
+                android:layout_gravity="center"
+                android:text="0 Repositories"/>
+        </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.fragment.app.FragmentContainerView

@@ -8,4 +8,5 @@ data class User(
     val bio: String?,
     val followers: Int,
     val following: Int,
+    val public_repos: Int
 )
