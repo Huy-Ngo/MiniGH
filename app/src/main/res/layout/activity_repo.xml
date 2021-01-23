@@ -24,12 +24,12 @@
             <include layout="@layout/main_toolbar"/>
         </androidx.appcompat.widget.Toolbar>
         <com.google.android.material.tabs.TabLayout
+            app:tabMode="scrollable"
             android:background="@color/backgroundColor"
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabGravity="fill"
-            app:tabMode="fixed"/>
+            app:tabGravity="fill"/>
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
