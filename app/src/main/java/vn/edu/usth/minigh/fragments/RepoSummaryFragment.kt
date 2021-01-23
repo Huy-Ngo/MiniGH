@@ -9,6 +9,9 @@ import android.view.View
 import android.view.View.GONE
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.LinearLayout.LayoutParams
+import android.widget.LinearLayout.LayoutParams.MATCH_PARENT
+import android.widget.LinearLayout.LayoutParams.WRAP_CONTENT
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -30,6 +33,7 @@ class RepoSummaryFragment(val repo_name: String) : Fragment(R.layout.fragment_re
         val starCount = view.findViewById<TextView>(R.id.star_count)
         val watchCount = view.findViewById<TextView>(R.id.watch_count)
         val forkCount = view.findViewById<TextView>(R.id.fork_count)
+        val readmeName = view.findViewById<TextView>(R.id.readme_fname)
         val readmeView = view.findViewById<TextView>(R.id.readme)
 
         lifecycleScope.launch {
@@ -49,9 +53,12 @@ class RepoSummaryFragment(val repo_name: String) : Fragment(R.layout.fragment_re
             starCount.text = "${repo.stargazers_count} Star" 
             watchCount.text = "${repo.watchers_count} Watch"
             forkCount.text = "${repo.forks_count} Fork"
+            readmeName.text = readme.name
             if (readme.encoding == "base64") {
                 README = String(Base64.decode(readme.content, Base64.DEFAULT))
                 Markwon.create(getContext()!!).setMarkdown(readmeView, README)
+                val params = LinearLayout.LayoutParams(MATCH_PARENT, WRAP_CONTENT)
+                readmeView.layoutParams = params
             } else {
                 readmeView.text = "Sorry, this file's encoding is not supported."
             }
