@@ -37,7 +37,6 @@ class RepoSummaryFragment() : Fragment(R.layout.fragment_repo_summary) {
 
         lifecycleScope.launch {
             val repo = github.repo(repo_name)
-            val readme = github.readme(repo_name)
             name.text = repo.full_name
             if (repo.fork) {
                 parentRepoName.text = repo.parent!!.full_name
@@ -52,12 +51,17 @@ class RepoSummaryFragment() : Fragment(R.layout.fragment_repo_summary) {
             starCount.text = "${repo.stargazers_count} Star" 
             watchCount.text = "${repo.watchers_count} Watch"
             forkCount.text = "${repo.forks_count} Fork"
-            readmeName.text = readme.name
-            if (readme.encoding == "base64") {
-                val README = String(Base64.decode(readme.content, Base64.DEFAULT))
-                Markwon.create(getContext()!!).setMarkdown(readmeView, README)
-            } else {
-                readmeView.text = "Sorry, this file's encoding is not supported."
+            try {
+                val readme = github.readme(repo_name)
+                readmeName.text = readme.name
+                if (readme.encoding == "base64") {
+                    val README = String(Base64.decode(readme.content, Base64.DEFAULT))
+                    Markwon.create(getContext()!!).setMarkdown(readmeView, README)
+                } else {
+                    readmeView.text = "Sorry, this file's encoding is not supported."
+                }
+            } catch (e: Exception) {
+                readmeView.text = "This repo doesn't have a README"
             }
             val params = LinearLayout.LayoutParams(MATCH_PARENT, WRAP_CONTENT)
             readmeView.layoutParams = params
