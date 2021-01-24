@@ -19,6 +19,7 @@ package vn.edu.usth.minigh
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.View.GONE
 import android.widget.ImageView
@@ -41,6 +42,10 @@ class ProfileActivity : BaseActivity(R.layout.activity_profile) {
         val token = myIntent.getStringExtra("savedAccessToken")
 
         Toast.makeText(applicationContext, token, Toast.LENGTH_SHORT).show()
+        if (token == null || token == "") {
+            val logout = Intent(this, AuthActivity::class.java)
+            startActivity(logout)
+        }
 
         // TODO: fallback to authenticated user
         val login = intent.getStringExtra("login") ?: "Huy-Ngo"
