@@ -55,8 +55,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="16h"
                 android:textSize="@dimen/med_text_size"
+                android:contentDescription="display time of comment"
                 android:layout_gravity="bottom|right"/>
         </LinearLayout>
         <TextView

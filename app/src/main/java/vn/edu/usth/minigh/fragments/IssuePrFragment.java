@@ -1,6 +1,7 @@
 package vn.edu.usth.minigh.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +10,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LifecycleOwner;
 
+import kotlinx.coroutines.CoroutineScope;
 import vn.edu.usth.minigh.R;
 
 /**
@@ -29,6 +32,8 @@ public class IssuePrFragment extends Fragment {
     private String mGHName ;
     private String mContent ;
     private String mStatus ;
+    private Integer mNumber;
+    private  String mComment;
 
     public IssuePrFragment() {
         // Required empty public constructor
@@ -60,6 +65,8 @@ public class IssuePrFragment extends Fragment {
             mGHName = getArguments().getString(ARG_PARAM1);
             mContent = getArguments().getString(ARG_PARAM2);
             mStatus = getArguments().getString(ARG_PARAM3);
+            mNumber = getArguments().getInt("number");
+            mComment = getArguments().getString("comment url");
         }
     }
 
@@ -82,12 +89,11 @@ public class IssuePrFragment extends Fragment {
         TextView ipContent = view.findViewById(R.id.issuePrContent);
         ipContent.setText(mContent);
 
-        LinearLayout ll = view.findViewById(R.id.issuesPrFrame);
+        TextView issuePrNumber = view.findViewById(R.id.issuePrNumber);
+        issuePrNumber.setText("# "+mNumber);
 
-//        String value = (String) v.getTag();
-//        Intent intent = new Intent(getActivity().getBaseContext(), DiscussionActivity.class);
-//        intent.putExtra("ghname", value);
-//        getActivity().startActivity(intent);
+        LinearLayout ll = view.findViewById(R.id.issuesPrFrame);
+        ll.setTag(mComment);
         return view;
     }
 }
