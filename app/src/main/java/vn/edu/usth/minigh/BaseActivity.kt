@@ -1,9 +1,8 @@
 // Base activity with drawer
 package vn.edu.usth.minigh
 
-import kotlinx.coroutines.launch
-
 import android.app.AlertDialog
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
@@ -11,15 +10,14 @@ import android.text.Html
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.lifecycleScope
-
 import coil.load
-
+import kotlinx.coroutines.launch
 import vn.edu.usth.minigh.api.github
+import java.net.CookieManager
 
 abstract class BaseActivity(layoutID: Int) : AppCompatActivity(layoutID) {
     private lateinit var drawerLayout: DrawerLayout
@@ -71,7 +69,8 @@ abstract class BaseActivity(layoutID: Int) : AppCompatActivity(layoutID) {
         builder.setMessage("Are you sure you want to log out?")
         builder.setPositiveButton(
             "Yes", DialogInterface.OnClickListener { _, _ ->
-                SessionManager(getApplicationContext()).removeSession()
+                SessionManager(applicationContext).removeSession()
+                TokenManager(applicationContext).removeToken()
                 redirectActivity(AuthActivity::class.java)
             }
         )

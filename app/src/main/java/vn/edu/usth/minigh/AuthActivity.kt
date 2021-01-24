@@ -3,20 +3,17 @@ package vn.edu.usth.minigh
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.app.Dialog
-import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
-import android.text.format.Time
 import android.util.Log
-import android.view.MotionEvent
 import android.view.View
-import android.view.inputmethod.InputMethodManager
+import android.webkit.CookieManager.getInstance
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.widget.Toast
+import android.webkit.CookieManager
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -38,6 +35,7 @@ class AuthActivity : AppCompatActivity(R.layout.activity_auth) {
     var id = ""
     var displayName = ""
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     fun login(view: View) {
         val state = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis())
         githubAuthURLFull =
@@ -47,6 +45,7 @@ class AuthActivity : AppCompatActivity(R.layout.activity_auth) {
     }
 
     // Show Github login page in a dialog
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     @SuppressLint("SetJavaScriptEnabled")
     fun setupGithubWebviewDialog(url: String1) {
         githubdialog = Dialog(this)
@@ -58,10 +57,13 @@ class AuthActivity : AppCompatActivity(R.layout.activity_auth) {
         webView.loadUrl(url)
         githubdialog.setContentView(webView)
         githubdialog.show()
+
+        // no cookie is saved, the session is saved by session manager
+        getInstance().removeAllCookies(null)
+        getInstance().flush()
 }
 
     // A client to know about WebView navigations
-    // For API 21 and above
     @Suppress("OverridingDeprecatedMember")
     inner class GithubWebViewClient : WebViewClient() {
         @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -74,20 +76,6 @@ class AuthActivity : AppCompatActivity(R.layout.activity_auth) {
 
                 // Close the dialog after getting the authorization code
                 if (request.url.toString().contains("code=")) {
-                    githubdialog.dismiss()
-                }
-                return true
-            }
-            return false
-        }
-
-        // For API 19 and below
-        override fun shouldOverrideUrlLoading(view: WebView, url: String1): Boolean {
-            if (url.startsWith(GithubConstants.REDIRECT_URI)) {
-                handleUrl(url)
-
-                // Close the dialog after getting the authorization code
-                if (url.contains("?code=")) {
                     githubdialog.dismiss()
                 }
                 return true
@@ -134,7 +122,7 @@ class AuthActivity : AppCompatActivity(R.layout.activity_auth) {
 
                 val accessToken = jsonObject.getString("access_token") //The access token
 
-                // Get user's id, first name, last name, profile pic url
+                // Get user's id, displayName and accessToken
                 fetchGithubUserProfile(accessToken)
             }
         }
@@ -169,7 +157,7 @@ class AuthActivity : AppCompatActivity(R.layout.activity_auth) {
             displayName = githubDisplayName
 
             // Save Token
-            TokenManager(getApplicationContext()).saveToken(accessToken)
+                TokenManager(getApplicationContext()).saveToken(accessToken)
 
             // Save session
             SessionManager(getApplicationContext()).saveSession(
