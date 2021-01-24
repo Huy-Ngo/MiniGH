@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/myShapeableImageView"
+        android:id="@+id/avatar"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_margin="20dp"
@@ -17,13 +17,13 @@
         android:layout_gravity="center_horizontal"
         tools:ignore="VectorDrawableCompat" />
     <TextView
+        android:id="@+id/nav_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/username"
         android:textSize="20sp"
         android:textAlignment="center"
         android:gravity="center_horizontal"
-        android:id="@+id/nav_username"
         android:textColor="@color/textColor"
         android:textStyle="bold"/>
     <LinearLayout
@@ -32,20 +32,20 @@
         android:orientation="horizontal"
         android:layout_marginTop="16dp">
         <TextView
+            android:id="@+id/follower_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:layout_weight="1"
             style="@style/Headline6"
-            android:id="@+id/follower_total"
             android:textColor="@color/textColor"/>
         <TextView
+            android:id="@+id/following_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:layout_weight="1"
             style="@style/Headline6"
-            android:id="@+id/following_total"
             android:textColor="@color/textColor"/>
     </LinearLayout>
     <View
