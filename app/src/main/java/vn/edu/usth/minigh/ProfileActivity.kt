@@ -17,30 +17,30 @@
  */
 package vn.edu.usth.minigh
 
-import kotlinx.coroutines.launch
-
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.View.GONE
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import androidx.lifecycle.lifecycleScope
-
 import coil.load
-
-import vn.edu.usth.minigh.fragments.RepoListFragment
+import kotlinx.coroutines.launch
 import vn.edu.usth.minigh.api.github
+import vn.edu.usth.minigh.fragments.RepoListFragment
 
 class ProfileActivity : BaseActivity(R.layout.activity_profile) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val myIntent = intent // this is just for example purpose
+        val token = myIntent.getStringExtra("savedAccessToken")
+
+        Toast.makeText(applicationContext, token, Toast.LENGTH_SHORT).show()
 
         // TODO: fallback to authenticated user
         val login = intent.getStringExtra("login") ?: "Huy-Ngo"
