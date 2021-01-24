@@ -1,0 +1,24 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="54dp">
+    <info.androidhive.fontawesome.FontTextView
+        android:gravity="center"
+        android:id="@+id/content_type"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="match_parent"
+        android:text="@string/fa_folder"
+        android:textColor="@color/secondaryTextColor"
+        android:layout_margin="@dimen/text_margin"
+        android:textSize="@dimen/icon_size"/>
+    <TextView
+        android:gravity="center_vertical"
+        android:id="@+id/content_name"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="10dp"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="@dimen/small_text_size"/>
+</LinearLayout>

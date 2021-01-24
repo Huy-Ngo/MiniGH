@@ -14,10 +14,12 @@ data class MinRepo(
     val parent: MinRepo?
 )
 
-data class Readme (
+data class Readme(
     val name: String,
     val content: String,
     val encoding: String
 )
 
-data class ShortBranch (val name: String)
+data class ShortBranch(val name: String)
+
+data class Content(val type: String, val name: String)

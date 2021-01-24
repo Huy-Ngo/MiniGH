@@ -7,40 +7,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
     <LinearLayout
-        android:id="@+id/path_list"
+        android:id="@+id/node_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/rounded_code">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:paddingHorizontal="10dp"
-            android:text="src"
-            android:textSize="@dimen/small_text_size"
-            android:textColor="@color/secondaryTextColor"
-            android:drawablePadding="10dp"
-            android:gravity="center_vertical"
-            app:drawableLeftCompat="@drawable/folderlogo" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:paddingHorizontal="10dp"
-            android:text="assets"
-            android:textSize="@dimen/small_text_size"
-            android:textColor="@color/secondaryTextColor"
-            android:drawablePadding="10dp"
-            android:gravity="center_vertical"
-            app:drawableLeftCompat="@drawable/folderlogo"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:paddingHorizontal="10dp"
-            android:text="README.md"
-            android:textSize="@dimen/small_text_size"
-            android:textColor="@color/secondaryTextColor"
-            android:drawablePadding="10dp"
-            android:gravity="center_vertical"
-            app:drawableLeftCompat="@drawable/filelogo" />
-    </LinearLayout>
+        android:background="@drawable/rounded_code"/>
 </LinearLayout>

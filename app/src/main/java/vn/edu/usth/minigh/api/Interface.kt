@@ -9,6 +9,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface GitHub {
     @GET("/users/{username}")
@@ -25,7 +26,14 @@ interface GitHub {
 
     @GET("/repos/{repoName}/branches")
     suspend fun branches(
-        @Path("repoName", encoded=true) repoName: String): Array<ShortBranch>
+        @Path("repoName", encoded=true) repoName: String
+    ): Array<ShortBranch>
+
+    @GET("/repos/{repoName}/contents/")
+    suspend fun contents(
+        @Path("repoName", encoded=true) repoName: String,
+        @Query("ref") ref: String
+    ): Array<Content>
 }
 
 val client = OkHttpClient.Builder()  // FIXME: use context.getCacheDir instead
