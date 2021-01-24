@@ -13,15 +13,26 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <TextView
-            android:id="@+id/appName"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textColor="@color/primaryColor"
-            android:textSize="80sp"
-            android:textStyle="bold"
-            android:layout_centerInParent="true"/>
+            android:id="@+id/appName"
+            android:layout_centerInParent="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="mini"
+                android:textColor="@color/primaryColor"
+                android:textSize="80sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GH"
+                android:textColor="@color/secondaryDarkColor"
+                android:textSize="80sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
     </RelativeLayout>
 
 
@@ -30,59 +41,30 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <EditText
-            android:id="@+id/username"
+        <Button
+            android:id="@+id/button_login"
             android:layout_width="320dp"
             android:layout_height="50dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="20dp"
-            android:drawableLeft="@drawable/username"
-            android:paddingLeft="15dp"
-            android:drawablePadding="20dp"
             android:background="@drawable/round_view"
-            android:hint="username"
-            android:textColorHint="@color/primaryTextColor"
-            android:textColor="@color/primaryTextColor" />
-
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="320dp"
-            android:layout_height="50dp"
-            android:layout_below="@+id/username"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="20dp"
-            android:drawableLeft="@drawable/password"
-            android:paddingLeft="15dp"
-            android:drawablePadding="20dp"
-            android:background="@drawable/round_view"
-            android:hint="password"
-            android:textColorHint="@color/primaryTextColor"
-            android:inputType="textPassword"
-            android:textColor="@color/primaryTextColor" />
-
-        <TextView
-            android:id="@+id/signup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Don't have account? Sign Up"
-            android:textColor="@color/primaryColor"
-            android:layout_alignRight="@+id/password"
-            android:layout_below="@+id/password"
-            android:layout_alignEnd="@+id/password" />
-
-
-        <Button
-            android:id="@+id/button_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="40dp"
-            android:layout_below="@+id/signup"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/round_view"
-            android:text="LOG IN"
+            android:text="Log in"
             android:onClick="login"
             android:textColor="#FFF"
+            tools:ignore="OnClick" />
+
+        <Button
+            android:id="@+id/button_signup"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:layout_below="@id/button_login"
+            android:background="@drawable/round_view_green"
+            android:text="Sign up on GitHub"
+            android:onClick="signUp"
+            android:textColor="@color/textColor"
             tools:ignore="OnClick" />
     </RelativeLayout>
 </LinearLayout>
