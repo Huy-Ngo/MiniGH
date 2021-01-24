@@ -38,20 +38,20 @@ class RepoActivity : BaseActivity(R.layout.activity_repo) {
         txtToolbar.setText("Repository")
 
         viewPager = findViewById(R.id.pager)
-        viewPager.setAdapter(object : FragmentStateAdapter(this) {
+        viewPager.adapter = object : FragmentStateAdapter(this) {
             override fun getItemCount(): Int = 5
             override fun createFragment(position: Int): Fragment {
-                val fragment: Fragment = when (position) {
+                return when (position) {
                     1 -> RepoTreeFragment()
                     2 -> RepoLogFragment()
                     3 -> IssuesListFragment()
                     4 -> PRsListFragment()
                     else -> RepoSummaryFragment()
+                }.apply {
+                    arguments = bundleOf("repo name" to repo_name)
                 }
-                fragment.arguments = bundleOf("repo name" to repo_name) 
-                return fragment
             }
-        })
+        }
         val tabLayout = findViewById<TabLayout>(R.id.tab_layout)
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = TAB_NAMES[position]
