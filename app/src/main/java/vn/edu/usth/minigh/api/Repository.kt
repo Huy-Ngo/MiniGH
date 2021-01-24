@@ -19,3 +19,5 @@ data class Readme (
     val content: String,
     val encoding: String
 )
+
+data class ShortBranch (val name: String)

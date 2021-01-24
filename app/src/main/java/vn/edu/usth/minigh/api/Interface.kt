@@ -22,6 +22,10 @@ interface GitHub {
 
     @GET("/repos/{repoName}/readme")
     suspend fun readme(@Path("repoName", encoded=true) repoName: String): Readme
+
+    @GET("/repos/{repoName}/branches")
+    suspend fun branches(
+        @Path("repoName", encoded=true) repoName: String): Array<ShortBranch>
 }
 
 val client = OkHttpClient.Builder()  // FIXME: use context.getCacheDir instead
