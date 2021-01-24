@@ -35,6 +35,9 @@ class AuthActivity : AppCompatActivity(R.layout.activity_auth) {
     lateinit var githubAuthURLFull: String1
     lateinit var githubdialog: Dialog
 
+    var id = ""
+    var displayName = ""
+
     fun login(view: View) {
         val state = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis())
         githubAuthURLFull =
@@ -155,9 +158,25 @@ class AuthActivity : AppCompatActivity(R.layout.activity_auth) {
             Log.i("GitHub Access Token: ", token)
             var accessToken = token
 
-            val intent = Intent(applicationContext, ProfileActivity::class.java)
-            intent.putExtra("savedAccessToken", accessToken)
-            startActivity(intent)
+            // GitHub Id
+            val githubId = jsonObject.getInt("id")
+            Log.i("GitHub Id: ", githubId.toString())
+            id = githubId.toString()
+
+            // GitHub Display Name
+            val githubDisplayName = jsonObject.getString("login")
+            Log.i("GitHub Display Name: ", githubDisplayName)
+            displayName = githubDisplayName
+
+            // Save Token
+            TokenManager(getApplicationContext()).saveToken(accessToken)
+
+            // Save session
+            SessionManager(getApplicationContext()).saveSession(
+                User(id.toInt(), displayName)
+            )
+
+            startActivity(Intent(applicationContext, ProfileActivity::class.java))
         }
     }
 

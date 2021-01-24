@@ -38,9 +38,8 @@ import vn.edu.usth.minigh.fragments.RepoListFragment
 class ProfileActivity : BaseActivity(R.layout.activity_profile) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val myIntent = intent // this is just for example purpose
-        val token = myIntent.getStringExtra("savedAccessToken")
 
+        val token = TokenManager(applicationContext).getToken()
         Toast.makeText(applicationContext, token, Toast.LENGTH_SHORT).show()
         if (token == null || token == "") {
             val logout = Intent(this, AuthActivity::class.java)
