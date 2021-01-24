@@ -9,12 +9,15 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.Path
 import retrofit2.http.Query
 
 import java.util.ArrayList
 
 interface GitHub {
+    @GET("/user")
+    suspend fun current_user(@Header("Authorization") token: String): User
 
     @GET("/users/{username}")
     suspend fun user(@Path("username") username: String): User

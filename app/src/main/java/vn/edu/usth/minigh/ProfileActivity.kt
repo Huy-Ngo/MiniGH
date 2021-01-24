@@ -58,7 +58,7 @@ class ProfileActivity : BaseActivity(R.layout.activity_profile) {
         }
 
         lifecycleScope.launch {
-            val user = github.user(login)
+            val user = github.current_user("Bearer $token")
             user.bio?.also {
                 findViewById<TextView>(R.id.user_bio).text = it
             } ?: run {
