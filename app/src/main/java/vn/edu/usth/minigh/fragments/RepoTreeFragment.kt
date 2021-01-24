@@ -17,9 +17,10 @@ import androidx.lifecycle.lifecycleScope
 import vn.edu.usth.minigh.R
 import vn.edu.usth.minigh.api.github
 import vn.edu.usth.minigh.api.ShortBranch
+import vn.edu.usth.minigh.fragments.TreeFragment
 
 class RepoTreeFragment :
-    Fragment(R.layout.fragment_tree), OnItemSelectedListener {
+    Fragment(R.layout.fragment_repo_tree), OnItemSelectedListener {
 
     private lateinit var branches: List<String>
 
@@ -27,11 +28,7 @@ class RepoTreeFragment :
     override fun onItemSelected(parent: AdapterView<*>?, view: View?,
                                 position: Int, id: Long) {
         childFragmentManager.commit {
-            replace(R.id.tree, if (position == 0) {
-                CodeMainFragment()
-            } else {
-                CodeBranch1Fragment()
-            })
+            replace(R.id.tree, TreeFragment())
         }
     }
 

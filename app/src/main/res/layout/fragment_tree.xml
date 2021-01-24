@@ -1,36 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center_horizontal"
     android:orientation="vertical">
     <LinearLayout
+        android:id="@+id/path_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/fab_margin"
-        android:orientation="horizontal">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/fab_margin"
-            android:src="@drawable/fork"
-            android:layout_gravity="center"/>
-        <Spinner
-            android:id="@+id/branch_spinner"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:background="@drawable/stylingspinner"
-            android:popupBackground="@color/secondaryColor"
-            android:entries="@array/branchDropdown" />
+        android:orientation="vertical"
+        android:background="@drawable/rounded_code">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingHorizontal="10dp"
+            android:text="src"
+            android:textSize="@dimen/small_text_size"
+            android:textColor="@color/secondaryTextColor"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            app:drawableLeftCompat="@drawable/folderlogo" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingHorizontal="10dp"
+            android:text="assets"
+            android:textSize="@dimen/small_text_size"
+            android:textColor="@color/secondaryTextColor"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            app:drawableLeftCompat="@drawable/folderlogo"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingHorizontal="10dp"
+            android:text="README.md"
+            android:textSize="@dimen/small_text_size"
+            android:textColor="@color/secondaryTextColor"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            app:drawableLeftCompat="@drawable/filelogo" />
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/tree"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/fab_margin"
-        android:orientation="vertical" />
 </LinearLayout>
