@@ -30,7 +30,6 @@ class IssueActivity : BaseActivity(R.layout.activity_issue) {
 
         lifecycleScope.launch {
             Log.d("User_token", token.toString())
-
 //            val user_token = github.current_user("Bearer $token")
 //            val issue = github.issueUser("author:"+"Huy-Ngo"+" state:open is:issue")
             val issueOpen = github.issue_user("Bearer $token", "open")

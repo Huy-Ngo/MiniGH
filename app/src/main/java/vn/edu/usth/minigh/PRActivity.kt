@@ -27,10 +27,14 @@ class PRActivity : BaseActivity(R.layout.activity_pr) {
         layout.setBackgroundColor(applicationContext.resources.getColor(R.color.secondaryColor))
         val sg = findViewById<View>(R.id.segmented2) as RadioGroup
         sg.check(R.id.button31)
+
+        val token = TokenManager(applicationContext).getToken()
+
         lifecycleScope.launch {
-            val prOpen = github.prUser("author:"+"Huy-Ngo"+" state:open  is:pull-request")
+            val username = github.current_user("Bearer $token")
+            val prOpen = github.prUser("author:"+username.login+" state:open  is:pull-request")
             val igOpen: java.util.ArrayList<Pulls> = prOpen.items
-            val prClose = github.prUser("author:"+"Huy-Ngo"+" state:closed  is:pull-request")
+            val prClose = github.prUser("author:"+username.login+" state:closed  is:pull-request")
             prClose.items[0].comments_url?.let { Log.d("TAG", it) }
             val igClose: java.util.ArrayList<Pulls> = prClose.items
             addFrag("pr", igOpen.count(), igOpen!!)
