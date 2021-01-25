@@ -14,7 +14,7 @@ class SplashActivity : AppCompatActivity(R.layout.activity_splash) {
         super.onStart()
 
         lifecycleScope.launch {
-            delay(300)
+            delay(2000)
             val manager = SessionManager(getApplicationContext())
             val intent = if (manager.getSession() == -1) {
                 Intent(this@SplashActivity, AuthActivity::class.java)
