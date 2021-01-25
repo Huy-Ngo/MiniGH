@@ -85,12 +85,12 @@ public class IssuePrFragment extends Fragment {
             image.setBackgroundResource(R.drawable.error);
         }
         TextView name = view.findViewById(R.id.issuePrGhname);
-        name.setText(mGHName);
+        name.setText(mGHName  + " # "+mNumber);
         TextView ipContent = view.findViewById(R.id.issuePrContent);
         ipContent.setText(mContent);
 
-        TextView issuePrNumber = view.findViewById(R.id.issuePrNumber);
-        issuePrNumber.setText("# "+mNumber);
+//        TextView issuePrNumber = view.findViewById(R.id.issuePrNumber);
+//        issuePrNumber.setText("# "+mNumber);
 
         LinearLayout ll = view.findViewById(R.id.issuesPrFrame);
         ll.setTag(mComment);

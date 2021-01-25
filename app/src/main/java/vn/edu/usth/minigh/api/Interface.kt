@@ -19,6 +19,9 @@ interface GitHub {
     @GET("/user")
     suspend fun current_user(@Header("Authorization") token: String): User
 
+    @GET("/issues")
+    suspend fun issue_user(@Header("Authorization") token:String, @Query("state") state: String):ArrayList<Issue>
+
     @GET("/users/{username}")
     suspend fun user(@Path("username") username: String): User
 
@@ -30,9 +33,6 @@ interface GitHub {
 
     @GET("/repos/{repoName}/readme")
     suspend fun readme(@Path("repoName", encoded=true) repoName: String): Readme
-
-    @GET("/search/issues")
-    suspend fun issueUser(@Query("q") author:String): IssueOfUser
 
     @GET("/repos/{repo_name}/issues")
     suspend fun issueRepo(@Path("repo_name", encoded = true) repo_name:String, @Query("state") state:String): ArrayList<Issue>

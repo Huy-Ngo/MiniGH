@@ -25,11 +25,19 @@ class IssueActivity : BaseActivity(R.layout.activity_issue) {
         layout.setBackgroundColor(applicationContext.resources.getColor(R.color.secondaryColor))
         val sg = findViewById<View>(R.id.segmented2) as RadioGroup
         sg.check(R.id.button21)
+
+        val token = TokenManager(applicationContext).getToken()
+
         lifecycleScope.launch {
-            val issue = github.issueUser("author:"+"Huy-Ngo"+" state:open is:issue")
-            val igOpen: java.util.ArrayList<Issue> = issue.items
-            val issueClose = github.issueUser("author:"+"Huy-Ngo"+" state:closed is:issue")
-            val igClose: java.util.ArrayList<Issue> = issueClose.items
+            Log.d("User_token", token.toString())
+
+//            val user_token = github.current_user("Bearer $token")
+//            val issue = github.issueUser("author:"+"Huy-Ngo"+" state:open is:issue")
+            val issueOpen = github.issue_user("Bearer $token", "open")
+            val igOpen: java.util.ArrayList<Issue> = issueOpen
+//            val issueClose = github.issueUser("author:"+"Huy-Ngo"+" state:closed is:issue")
+            val issueClose = github.issue_user("Bearer $token", "closed")
+            val igClose: java.util.ArrayList<Issue> = issueClose
             addFrag("Open", igOpen.count(), igOpen!!)
             sg.setOnCheckedChangeListener { group, checkedId ->
                 when (checkedId) {
