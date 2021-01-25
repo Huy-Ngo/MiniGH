@@ -26,6 +26,9 @@
             android:name=".IssueActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".CodeActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".AuthActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />

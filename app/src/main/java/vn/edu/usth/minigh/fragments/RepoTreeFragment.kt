@@ -44,16 +44,20 @@ class RepoTreeFragment :
         }
     }
 
-    override fun onNothingSelected(parent: AdapterView<*>?) { }
-    override fun onItemSelected(parent: AdapterView<*>?, view: View?,
-                                position: Int, id: Long) {
+    fun openFolder(path: String, branch: String) {
         childFragmentManager.commit {
             replace(R.id.tree, TreeFragment().apply {
                 arguments = bundleOf(
                     "repo name" to repo_name,
-                    "branch" to branches[position],
+                    "path" to path,
+                    "branch" to branch,
                 )
             })
         }
     }
+
+    override fun onNothingSelected(parent: AdapterView<*>?) { }
+    override fun onItemSelected(
+        parent: AdapterView<*>?, view: View?, position: Int, id: Long
+    ) = openFolder("", branches[position])
 }

@@ -52,9 +52,7 @@ abstract class BaseActivity(layoutID: Int) : AppCompatActivity(layoutID) {
         if (this::class.java == aclass) {
             drawerLayout.closeDrawer(GravityCompat.START)
         } else {
-            val intent = Intent(this, aclass)
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(intent)
+            startActivity(Intent(this, aclass))
         }
     }
 

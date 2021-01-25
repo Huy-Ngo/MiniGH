@@ -51,9 +51,17 @@ interface GitHub {
         @Path("repoName", encoded=true) repoName: String
     ): Array<ShortBranch>
 
-    @GET("/repos/{repoName}/contents/")
+    @GET("/repos/{repoName}/contents/{path}")
+    suspend fun content(
+        @Path("repoName", encoded=true) repoName: String,
+        @Path("path", encoded=true) path: String,
+        @Query("ref") ref: String
+    ): Content
+
+    @GET("/repos/{repoName}/contents/{path}")
     suspend fun contents(
         @Path("repoName", encoded=true) repoName: String,
+        @Path("path", encoded=true) path: String,
         @Query("ref") ref: String
     ): Array<Content>
 }

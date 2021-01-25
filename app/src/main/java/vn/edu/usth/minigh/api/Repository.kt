@@ -22,4 +22,4 @@ data class Readme(
 
 data class ShortBranch(val name: String)
 
-data class Content(val type: String, val name: String)
+data class Content(val type: String, val name: String, val content: String?)
