@@ -25,6 +25,7 @@ abstract class BaseActivity(layoutID: Int) : AppCompatActivity(layoutID) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         drawerLayout = findViewById(R.id.drawer_layout)
+        val token = TokenManager(applicationContext).getToken()
 
         val avatar = findViewById<ImageView>(R.id.avatar)
         val username = findViewById<TextView>(R.id.nav_username)
@@ -32,8 +33,8 @@ abstract class BaseActivity(layoutID: Int) : AppCompatActivity(layoutID) {
         val following = findViewById<TextView>(R.id.following_total)
 
         lifecycleScope.launch {
-            val user = github.user("Huy-Ngo") // TODO: Replace this with login
-            username.text = "Huy-Ngo"
+            val user = github.current_user("Bearer $token") // TODO: Replace this with login
+            username.text = user.login
             follower.text = Html.fromHtml("<b>${user.followers}</b> Follower")
             following.text = (Html.fromHtml("<b>${user.following}</b> Following"))
             avatar.load(user.avatar_url)

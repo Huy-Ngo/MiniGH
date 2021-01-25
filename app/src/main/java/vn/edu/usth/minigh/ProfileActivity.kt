@@ -46,23 +46,22 @@ class ProfileActivity : BaseActivity(R.layout.activity_profile) {
             startActivity(logout)
         }
 
-        // TODO: fallback to authenticated user
-        val login = intent.getStringExtra("login") ?: "Huy-Ngo"
-        val drawerTab = findViewById<LinearLayout>(R.id.profile)
-        drawerTab.setBackgroundColor(getColor(R.color.secondaryColor))
-
-        findViewById<TextView>(R.id.main_text_bar).text = login
-        findViewById<TextView>(R.id.user_login).text = login
-        if (savedInstanceState == null) {
-            val args = bundleOf("owner" to login)
-            supportFragmentManager.commit {
-                setReorderingAllowed(true)
-                add<RepoListFragment>(R.id.repo_list, args = args)
-            }
-        }
 
         lifecycleScope.launch {
             val user = github.current_user("Bearer $token")
+            val login = intent.getStringExtra("login") ?: user.login
+            val drawerTab = findViewById<LinearLayout>(R.id.profile)
+            drawerTab.setBackgroundColor(getColor(R.color.secondaryColor))
+
+            findViewById<TextView>(R.id.main_text_bar).text = login
+            findViewById<TextView>(R.id.user_login).text = login
+            if (savedInstanceState == null) {
+                val args = bundleOf("owner" to login)
+                supportFragmentManager.commit {
+                    setReorderingAllowed(true)
+                    add<RepoListFragment>(R.id.repo_list, args = args)
+                }
+            }
             user.bio?.also {
                 findViewById<TextView>(R.id.user_bio).text = it
             } ?: run {
