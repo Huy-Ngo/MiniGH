@@ -54,4 +54,5 @@ dependencies {
 
     implementation "io.coil-kt:coil:1.1.0"
     implementation "io.noties.markwon:core:4.6.0"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }

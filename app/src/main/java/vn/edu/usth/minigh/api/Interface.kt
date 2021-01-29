@@ -66,7 +66,16 @@ interface GitHub {
     ): Array<Content>
 
     @GET("/repos/{repo_name}/commits")
-    suspend fun commits(@Path("repo_name", encoded = true) repo_name: String, @Query("sha", encoded = true) sha:String): ArrayList<CommitItem>
+    suspend fun commits(
+            @Path("repo_name", encoded = true) repo_name: String,
+            @Query("sha", encoded = true) sha:String
+    ): ArrayList<CommitItem>
+
+    @GET("/repos/{reponame}/commits/{sha}")
+    suspend fun commitchanges(
+            @Path("reponame", encoded = true) repoName: String,
+            @Path("sha", encoded = true) sha: String
+    ): CommitContent
 }
 
 val client = OkHttpClient.Builder()  // FIXME: use context.getCacheDir instead

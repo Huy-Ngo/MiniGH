@@ -5,44 +5,57 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 import vn.edu.usth.minigh.R
 import vn.edu.usth.minigh.api.CommitItem
+import vn.edu.usth.minigh.api.github
 
 class CommitListFragment : Fragment {
     // TODO: Rename and change types of parameters
     private var mBranch: String? = null
     private var mNoFrag: Int = 0
-    private var mSHA: ArrayList<CommitItem>? = null
+    private var namerepo: String? = null
+    private lateinit var listSHA: ArrayList<CommitItem>
 
-    constructor() {}
+    constructor() {
+        // void
+    }
 
-    private fun generateForm(i: Int): CommitPreviewFragment {
-        val fragment = CommitPreviewFragment()
-        val args = Bundle()
-//        Log.d("SHA LOG", mSHA.toString())
-        args.putString("commits", mSHA?.get(i)?.commit?.message)
-        args.putString("authors", mSHA?.get(i)?.commit?.author?.name)
-//        Log.d("getcommits", mSHA?.get(i)?.commit?.message + " bruhbruh " + mSHA?.get(i)?.commit?.author?.name)
-        fragment.arguments = args
-        return fragment
+    private fun commitViews(poponame: String, sha: String, msg: String, acc: String){
+        childFragmentManager.commit{
+            add(R.id.commitcontainer, CommitPreviewFragment().apply {
+                arguments = bundleOf(
+                        "repoName" to poponame,
+                        "SHA" to sha,
+                        "commits" to msg,
+                        "authors" to acc
+                )
+            })
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (arguments != null) {
             mBranch = requireArguments().getString(ARG_PARAM1)
-            mNoFrag = requireArguments().getInt(ARG_PARAM2)
-            mSHA = requireArguments().getParcelableArrayList("sha")
+            namerepo = requireArguments().getString(ARG_PARAM2)
         }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_commit_list, container, false)
-        for (i in 0 until mNoFrag) {
-            val commititem: Fragment = generateForm(i)
-            childFragmentManager.beginTransaction().add(R.id.commitcontainer, commititem).commit()
+        lifecycleScope.launch {
+            listSHA = github.commits(namerepo.toString(), mBranch.toString())
+            mNoFrag = listSHA.size
+            for (i in 0 until mNoFrag) {
+                commitViews(namerepo.toString(), listSHA?.get(i)?.sha.toString() , listSHA[i].commit.message, listSHA[i].commit.author.name)
+                Log.d("shaplz", listSHA?.get(i).sha.toString())
+            }
         }
         return view
     }
@@ -51,14 +64,12 @@ class CommitListFragment : Fragment {
         // TODO: Rename parameter arguments, choose names that match
         // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
         private const val ARG_PARAM1 = "branch"
-        private const val ARG_PARAM2 = "numoffrag"
-        private const val ARG_PARAM3 = "sha"
-        fun newInstance(param1: String?, param2: String?, param3: ArrayList<CommitItem>): CommitListFragment {
+        private const val ARG_PARAM2 = "repoName"
+        fun newInstance(param1: String?, param2: String?): CommitListFragment {
             val fragment = CommitListFragment()
             val args = Bundle()
             args.putString(ARG_PARAM1, param1)
             args.putString(ARG_PARAM2, param2)
-            args.putParcelableArrayList(ARG_PARAM3, param3)
             fragment.arguments = args
             return fragment
         }
